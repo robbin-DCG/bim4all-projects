@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"></link>
+<link rel="stylesheet" href="./responsive.css"></link>
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:#f5f5f9;font-family:'Facit','Montserrat',system-ui,sans-serif}
+a{color:#262262;text-decoration:none}a:hover{color:#14123a}
+</style>
+</helmet>
+
+<div id="top" data-screen-label="Werken bij" style="min-width:1280px;color:#262262">
+
+  <!-- nav -->
+  <header style="position:sticky;top:0;z-index:50;background:#14123a;padding:18px 56px">
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1380px;margin:0 auto">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;color:#ffffff" style-hover="color:#ffffff">
+        <span style="font-size:21px;font-weight:800;color:#ffffff;letter-spacing:-.01em">BIM4ALL</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#14123a;background:#ffffff;padding:4px 10px;border-radius:99px">PROJECTS</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px;font-size:14.5px;font-weight:600;white-space:nowrap">
+        <a href="index.html#ikwil" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Ik wil…</a>
+        <a href="index.html#oplossingen" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Oplossingen</a>
+        <a href="projecten.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Projecten</a>
+        <a href="organisatie.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Organisatie</a>
+        <a href="#top" style="color:#ffffff;padding:10px 0;border-bottom:2px solid #e94fbb" style-hover="color:#ffffff">Werken bij</a>
+        <a href="contact.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Contact</a>
+        <a href="https://www.bim4all-academie.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);padding:10px 0" style-hover="color:#ffffff">Academy ↗</a>
+      </nav>
+      <a href="#routes" style="background:#c1188d;color:#ffffff;font-size:14px;font-weight:700;padding:12px 26px;border-radius:99px;transition:background .2s" style-hover="background:#9c1372;color:#ffffff">Open vacatures</a>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <div style="background:#14123a;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;padding:88px 56px 0">
+    <div style="max-width:940px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+      <span style="font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#d9d7ee;border:1px solid rgba(255,255,255,.3);padding:9px 22px;border-radius:99px">WERKEN BIJ BIM4ALL</span>
+      <h1 style="margin:0;font-size:56px;line-height:1.08;font-weight:800;color:#ffffff;letter-spacing:-.02em;text-wrap:balance">Jij brengt bouwkennis óf technologie. Wij brengen je de <span style="background:linear-gradient(100deg,#e94fbb 0%,#a86ee8 55%,#7d8cf0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">andere helft</span>.</h1>
+      <p style="margin:0;font-size:18px;line-height:1.7;color:rgba(255,255,255,.7);max-width:60ch">Van student tot senior professional: hier werk je aan échte projecten die je overal in Nederland terugziet — met de nieuwste technologie én collega's die weten hoe je bouwt.</p>
+    </div>
+    <div style="max-width:1180px;margin:56px auto 0">
+      <div style="height:400px;border-radius:24px 24px 0 0;overflow:hidden">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="vac-hero" shape="rect" src="assets/team-overleg.png" placeholder="Foto team" hint-size="100%,400px"></x-import>
+      </div>
+    </div>
+  </div>
+
+  <!-- route kiezer -->
+  <div id="routes" style="padding:72px 56px 32px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#262262;background:rgba(38,34,98,.08);padding:8px 18px;border-radius:99px">KIES JE ROUTE</span>
+        <h2 style="margin:0;font-size:42px;line-height:1.1;font-weight:800;letter-spacing:-.02em;text-wrap:balance">Waar sta jij in je loopbaan?</h2>
+        <p style="margin:0;font-size:16.5px;line-height:1.7;color:rgba(38,34,98,.62);max-width:62ch">Vier routes, elk met een eigen verhaal: wat je doet, hoeveel ruimte je krijgt en welke collega's je voorgingen. Kies de jouwe.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px">
+        <button onClick="{{ goStudent }}" style="{{ tabStudent }}">Student<span style="{{ tabSubStudent }}">Stage of afstuderen</span></button>
+        <button onClick="{{ goStarter }}" style="{{ tabStarter }}">Starter<span style="{{ tabSubStarter }}">0–2 jaar ervaring</span></button>
+        <button onClick="{{ goErvaren }}" style="{{ tabSubErvarenWrap }}"><span style="{{ tabBadgeErvaren }}">MEESTE VACATURES</span>Ervaren professional<span style="{{ tabSubErvaren }}">Vakvolwassen, klaar voor meer</span></button>
+        <button onClick="{{ goSenior }}" style="{{ tabSenior }}">Senior professional<span style="{{ tabSubSenior }}">Richting geven aan teams</span></button>
+        <button onClick="{{ goStaf }}" style="{{ tabStaf }}">Staf<span style="{{ tabSubStaf }}">Marketing, HR &amp; organisatie</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- route detail -->
+  <div style="padding:24px 56px 88px">
+    <div style="max-width:1380px;margin:0 auto;background:#ffffff;border-radius:32px;border:1px solid rgba(38,34,98,.1);padding:64px;display:flex;flex-direction:column;gap:52px">
+
+      <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font-size:11.5px;font-weight:700;letter-spacing:.16em;color:#c1188d">{{ rKicker }}</span>
+          <h2 style="margin:0;font-size:36px;line-height:1.12;font-weight:800;letter-spacing:-.02em;text-wrap:balance">{{ rTitle }}</h2>
+          <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(38,34,98,.7)">{{ rIntro }}</p>
+          <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(38,34,98,.7)"><strong>Jouw ruimte:</strong> {{ rRuimte }}</p>
+          <a href="#vacatures" style="background:#c1188d;color:#ffffff;font-size:14.5px;font-weight:700;padding:14px 30px;border-radius:99px;align-self:flex-start;transition:background .2s;margin-top:6px" style-hover="background:#9c1372;color:#ffffff">{{ rCta }}</a>
+        </div>
+        <div style="height:360px;border-radius:24px;overflow:hidden">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ rImgId }}" shape="rect" src="{{ rImgSrc }}" placeholder="Foto bij deze route" hint-size="100%,360px"></x-import>
+        </div>
+      </div>
+
+      <!-- stats -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid rgba(38,34,98,.1);border-bottom:1px solid rgba(38,34,98,.1);padding:36px 0">
+        <sc-for list="{{ rStats }}" as="s" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center">
+            <span style="font-size:36px;font-weight:800;color:#262262">{{ s.n }}</span>
+            <span style="font-size:13.5px;font-weight:600;color:rgba(38,34,98,.6)">{{ s.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- collega's -->
+      <div style="display:flex;flex-direction:column;gap:28px">
+        <h3 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">Zij gingen je voor</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+          <sc-for list="{{ rPeople }}" as="p" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;background:#f5f5f9;border-radius:20px;overflow:hidden">
+              <div style="height:200px">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.imgId }}" shape="rect" placeholder="Foto collega" hint-size="100%,200px"></x-import>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;padding:22px 24px">
+                <span style="font-size:16px;font-weight:800">{{ p.name }}</span>
+                <span style="font-size:12.5px;font-weight:700;color:#c1188d">{{ p.role }}</span>
+                <p style="margin:4px 0 0;font-size:14px;line-height:1.65;color:rgba(38,34,98,.7);font-style:italic">"{{ p.quote }}"</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- project als bewijs -->
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center;background:#14123a;border-radius:24px;padding:44px 48px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:#e94fbb">AAN DIT SOORT PROJECTEN WERK JE</span>
+          <h3 style="margin:0;font-size:26px;line-height:1.2;font-weight:800;color:#ffffff;letter-spacing:-.01em">{{ rProjTitle }}</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.7)">{{ rProjBody }}</p>
+          <a href="projecten.html" style="font-size:14px;font-weight:700;color:#ffffff;border-bottom:2px solid rgba(255,255,255,.35);align-self:flex-start;padding-bottom:2px" style-hover="border-color:#ffffff;color:#ffffff">Bekijk onze projecten →</a>
+        </div>
+        <div style="height:260px;border-radius:16px;overflow:hidden">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ rProjImgId }}" shape="rect" src="{{ rProjImgSrc }}" placeholder="Projectfoto" hint-size="100%,260px"></x-import>
+        </div>
+      </div>
+
+      <!-- vacatures voor deze route -->
+      <div id="vacatures" style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px">
+          <h3 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">Vacatures voor jou</h3>
+          <span style="font-size:13.5px;font-weight:600;color:rgba(38,34,98,.5)">Alle functies · Rijssen / hybride</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ rVacs }}" as="v" hint-placeholder-count="3">
+            <a href="contact.html" style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) auto;gap:24px;align-items:center;padding:24px 30px;background:#f5f5f9;border-radius:16px;color:#262262;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 14px 36px rgba(20,18,58,.12);color:#262262">
+              <span style="font-size:17.5px;font-weight:800;letter-spacing:-.01em">{{ v.title }}</span>
+              <span style="font-size:13.5px;line-height:1.6;color:rgba(38,34,98,.65)">{{ v.body }}</span>
+              <span style="font-size:13.5px;font-weight:700;color:#c1188d;white-space:nowrap">Lees meer →</span>
+            </a>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:22px;padding:22px 28px;background:#14123a;border-radius:16px">
+          <div style="width:56px;height:56px;border-radius:50%;overflow:hidden;flex-shrink:0">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hr-avatar" shape="circle" placeholder="Foto Celeste" hint-size="56px,56px"></x-import>
+          </div>
+          <span style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.8)"><strong style="color:#ffffff">{{ rOpenLabel }}</strong> Neem contact op met Celeste Kienhuis (HR-manager) — zij denkt graag met je mee.</span>
+          <a href="mailto:info@bim4all.com" style="background:#c1188d;color:#ffffff;font-size:13.5px;font-weight:700;padding:12px 26px;border-radius:99px;white-space:nowrap;transition:background .2s;margin-left:auto" style-hover="background:#9c1372;color:#ffffff">Mail Celeste</a>
+        </div>
+      </div>
+
+      <!-- faq -->
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:48px">
+        <h3 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">Veelgestelde vragen</h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ rFaq }}" as="f" hint-placeholder-count="3">
+            <button onClick="{{ f.toggle }}" style="{{ faqBtnStyle }}">
+              <span style="display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%">
+                <span style="font-size:15.5px;font-weight:800;color:#262262;text-align:left">{{ f.q }}</span>
+                <span style="font-size:14px;color:#c1188d;font-weight:800">{{ f.icon }}</span>
+              </span>
+              <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+                <span style="display:block;margin-top:10px;font-size:14.5px;line-height:1.7;color:rgba(38,34,98,.7);text-align:left;font-weight:500">{{ f.a }}</span>
+              </sc-if>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- cultuur -->
+  <div style="padding:0 56px 88px">
+    <div style="max-width:1380px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#262262;background:rgba(38,34,98,.08);padding:8px 18px;border-radius:99px;align-self:flex-start">ZO WERKEN WE</span>
+        <h2 style="margin:0;font-size:36px;line-height:1.14;font-weight:800;letter-spacing:-.02em;text-wrap:balance">Ambitieus, fris en toegankelijk</h2>
+        <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(38,34,98,.65)">Naar buiten professioneel en duidelijk, onderling relaxed en gepassioneerd — met ruimte voor een praatje en een grap. We proberen telkens iets nieuws en durven bij te sturen als het niet werkt. Zo voelt werken hier: serieus over het vak, licht in de omgang.</p>
+        <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(38,34,98,.65)"><strong>Je werkt met de nieuwste technologie.</strong> AI en automatisering nemen hier het repeterende werk over — jij houdt tijd voor engineering, afstemming en kwaliteit. Zo blijf je vooroplopen in je vak, zonder er zelf achteraan te hoeven rennen.</p>
+        <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(38,34,98,.65)"><strong>Je start is een traject, geen sprong.</strong> Je eerste jaar krijg je een vaste buddy en een persoonlijk opleidingspad via ons eigen leerplatform. En werk en privé? Dat stemmen we af als volwassen mensen — jij beweegt mee als het project het vraagt, wij als jouw leven het vraagt.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px">
+        <div style="height:320px;border-radius:24px;overflow:hidden">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="vac-foto1" shape="rect" src="assets/team-samenwerken.png" placeholder="Foto team" hint-size="100%,320px"></x-import>
+        </div>
+        <div style="height:320px;border-radius:24px;overflow:hidden;margin-top:28px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="vac-foto2" shape="rect" src="assets/engineer-bim-model.png" placeholder="Foto werk" hint-size="100%,320px"></x-import>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer style="background:#14123a;padding:56px 56px 40px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:32px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:19px;font-weight:800;color:#ffffff">BIM4ALL</span>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#14123a;background:#ffffff;padding:3px 9px;border-radius:99px">PROJECTS</span>
+        </div>
+        <nav style="display:flex;gap:28px;font-size:14px;font-weight:600">
+          <a href="index.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Home</a>
+          <a href="projecten.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Projecten</a>
+          <a href="organisatie.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Organisatie</a>
+          <a href="#top" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Werken bij</a>
+          <a href="https://www.bim4all-academie.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Academy ↗</a>
+        </nav>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;font-size:12.5px;color:rgba(255,255,255,.4)">
+        <span>© 2026 BIM4ALL · onderdeel van Digital Construction Group B.V.</span>
+        <span>Nijverdalseweg 133, Rijssen · +31 (0)548 - 37 67 97</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+class Component extends DCLogic {
+  state = { route: 'ervaren', openFaq: 0 };
+
+  routes() {
+    return {
+      student: {
+        kicker: 'STUDENT · STAGE OF AFSTUDEREN',
+        title: 'Ontdek of dit vak bij je past — aan échte projecten',
+        intro: 'Geen koffiehalen, geen nep-opdracht. Je draait vanaf dag één mee in een projectteam en wat jij maakt, wordt echt gebouwd. Je krijgt een vaste begeleider, leuke collega\'s van je eigen leeftijd én vakmensen die alles al eens hebben meegemaakt.',
+        ruimte: 'een eigen opdracht die bij je studie past, ruimte om fouten te maken en te ontdekken waar je goed in bent — en gewoon een goeie tijd met het team.',
+        cta: 'Bekijk stageplekken',
+        imgId: 'route-img-student', imgSrc: '',
+        stats: [
+          { n: '1-op-1', label: 'begeleiding vanuit een projectteam' },
+          { n: '100%', label: 'werken aan echte projecten' },
+          { n: '4', label: 'disciplines waarin je kunt meekijken' },
+        ],
+        people: [
+          { imgId: 'p-student-1', name: 'Lotte', role: 'Afstudeerder BIM-engineering', quote: 'Ik merkte snel dat een model geen schoolopdracht is, maar een middel waarmee teams betere keuzes maken.' },
+          { imgId: 'p-student-2', name: 'Sam', role: 'Stagiair bouwkunde', quote: 'De begeleiding is praktisch. Je leert door mee te werken aan informatie die echt gebruikt wordt.' },
+          { imgId: 'p-student-3', name: 'Noor', role: 'Werkstudent modelcontrole', quote: 'Je ziet hoe kleine controles grote gevolgen hebben voor planning en uitvoering.' },
+        ],
+        projTitle: 'Woningbouw die je terugziet in de stad',
+        projBody: 'Studenten werken mee aan echte woningbouw- en utiliteitsprojecten — van modelcontrole tot uitwerking. Wat jij doet, wordt gebouwd.',
+        projImgId: 'proj-student', projImgSrc: 'assets/digital-twin-review.png',
+        faq: [
+          { q: 'Kan ik stage lopen of afstuderen bij BIM4ALL?', a: 'Ja. We kijken samen welke opdracht past bij je studie, je niveau en de projecten die op dat moment lopen.' },
+          { q: 'Moet ik al BIM-ervaring hebben?', a: 'Niet per se. Interesse in digitaal bouwen, nauwkeurig werken en leergierigheid zijn belangrijker dan jaren ervaring.' },
+          { q: 'Werk ik mee aan echte projecten?', a: 'Altijd. Je werkt aan vraagstukken uit de praktijk, onder begeleiding van ervaren specialisten.' },
+          { q: 'Werken jullie samen met mijn school?', a: 'Grote kans: we werken structureel samen met onder meer ROC van Twente, Saxion, Deltion, Hoornbeeck, Windesheim en de HAN — en geven daar regelmatig gastcolleges.' },
+        ],
+      },
+      starter: {
+        kicker: 'STARTER · 0–2 JAAR ERVARING',
+        title: 'Leer het vak van vakmensen, werk met de nieuwste technologie',
+        intro: 'Als starter kom je in een vast team met ervaren leermeesters om je heen. Je eerste jaar is een traject: een vaste buddy naast je, een persoonlijk opleidingspad en via de BIM4ALL Academie trainingen en coaching naast je werk — van BIM en data tot AI.',
+        ruimte: 'een persoonlijk ontwikkelplan, echte verantwoordelijkheid vanaf het begin en doorgroeiroutes richting engineering, coördinatie, data of projectleiding.',
+        cta: 'Bekijk startersvacatures',
+        imgId: 'route-img-starter', imgSrc: '',
+        stats: [
+          { n: '500+', label: 'projecten per jaar — je ziet álles' },
+          { n: 'Academie', label: 'eigen leerroute naast je werk' },
+          { n: '4', label: 'doorgroeirichtingen' },
+        ],
+        people: [
+          { imgId: 'p-starter-1', name: 'Milan', role: 'Junior BIM-engineer', quote: 'In korte tijd leerde ik hoe belangrijk vaste afspraken en modeldiscipline zijn voor een projectteam.' },
+          { imgId: 'p-starter-2', name: 'Yara', role: 'Junior projectengineer', quote: 'Je krijgt snel inhoud, maar niet zonder begeleiding. Dat maakt groeien concreet.' },
+          { imgId: 'p-starter-3', name: 'BIM4ALL Academie', role: 'Interne leerroute', quote: 'Je leert niet alleen in projecten, maar ook met trainingen, coaching en praktijkopdrachten.' },
+        ],
+        projTitle: 'Van definitief ontwerp naar maakbaar plan',
+        projBody: 'Starters werken mee aan de uitwerking van complexe projecten — houtbouw, woningbouw, utiliteit. Elke week zie je wat jouw nauwkeurigheid oplevert op de bouw.',
+        projImgId: 'proj-starter', projImgSrc: 'assets/engineer-bim-model.png',
+        faq: [
+          { q: 'Welke ervaring heb ik als starter nodig?', a: 'Een technische opleiding of eerste werkervaring helpt. Belangrijker is dat je precies wilt werken en wilt begrijpen hoe projecten georganiseerd worden.' },
+          { q: 'Krijg ik begeleiding?', a: 'Ja. Je werkt mee in projecten, maar hebt altijd mensen om je heen die meekijken, uitleggen en feedback geven.' },
+          { q: 'Kan ik doorgroeien?', a: 'Ja. Richting engineering, BIM-coördinatie, datakwaliteit of projectleiding — je ontwikkelplan groeit met je mee.' },
+        ],
+      },
+      ervaren: {
+        kicker: 'ERVAREN PROFESSIONAL · VAKVOLWASSEN, KLAAR VOOR MEER',
+        title: 'Jouw vakkennis wordt hier alleen maar meer waard',
+        intro: 'Je kent je vak — van de bouwplaats, de werkvoorbereiding of achter het model. En je ziet dat de bouw verandert. Hier hoef je niet opnieuw te beginnen: wij bouwen verder op wat jij kunt en leren je de digitale kant erbij. Gewoon goed geregeld: vast contract, korte lijnen, geen politiek.',
+        ruimte: 'eigen projecten en klanten, collega\'s die je vakmanschap serieus nemen en zeggenschap over hoe het werk beter kan. Jij bent hier niet "de nieuwe" — jij bent de versterking.',
+        cta: 'Bekijk vacatures voor professionals',
+        imgId: 'route-img-ervaren', imgSrc: 'assets/engineer-bim-model.png',
+        stats: [
+          { n: '3', label: 'routes: engineering, coördinatie en data' },
+          { n: '300+', label: 'klanten — altijd een nieuw vraagstuk' },
+          { n: 'Veel', label: 'ruimte voor vakinhoudelijke verdieping' },
+        ],
+        people: [
+          { imgId: 'p-ervaren-1', name: 'Eva', role: 'BIM-coördinator', quote: 'Mijn werk zit vaak in het vroeg zichtbaar maken van risico\'s. Dat voorkomt later ruis.' },
+          { imgId: 'p-ervaren-2', name: 'Thomas', role: 'Projectengineer', quote: 'Je voelt dat inhoud hier telt. Niet harder roepen, maar beter onderbouwen.' },
+          { imgId: 'p-ervaren-3', name: 'Nadia', role: 'Modelvalidatie-specialist', quote: 'Goede validatie is geen controle achteraf, maar een manier om teams vooruit te helpen.' },
+        ],
+        projTitle: 'Complexe houtbouw, integraal gecoördineerd',
+        projBody: 'Ervaren professionals trekken projecten als Robin Wood: constructie, bouwkunde en installaties in één gecoördineerd model, clash-vrij vóór de bouwstart.',
+        projImgId: 'proj-ervaren', projImgSrc: 'assets/digital-twin-review.png',
+        faq: [
+          { q: 'Welke rollen passen bij ervaren professionals?', a: 'Denk aan BIM-coördinator, projectengineer, modelvalidatie-specialist of specialist digitale overdracht.' },
+          { q: 'Werk ik zelfstandig of in teamverband?', a: 'Allebei. Je krijgt verantwoordelijkheid, maar werkt altijd in verbinding met projectteams en specialisten.' },
+          { q: 'Is er ruimte om werkwijzen te verbeteren?', a: 'Ja. Juist ervaren mensen helpen ons standaarden scherper, overdraagbaarder en beter toepasbaar te maken.' },
+        ],
+      },
+      senior: {
+        kicker: 'SENIOR PROFESSIONAL · 35–45 IDEAAL, DAAROMHEEN WELKOM',
+        title: 'Bouw mee aan het bedrijf, niet alleen aan projecten',
+        intro: 'Je hebt je bewezen en zoekt geen baan, maar een plek waar je ervaring richting geeft: aan teams, aan klanten en aan hoe wij ons vak organiseren. Bij een marktleider in opbouw betekent senioriteit hier écht iets — je zit aan tafel waar keuzes worden gemaakt, zonder de stroperigheid van een groot bureau.',
+        ruimte: 'regie over projecten en klantrelaties, mentorschap van de nieuwe generatie en directe invloed op strategie en groei. Jouw handtekening staat straks onder hoe dit bedrijf werkt.',
+        cta: 'Bekijk seniorvacatures',
+        imgId: 'route-img-senior', imgSrc: 'assets/team-samenwerken.png',
+        stats: [
+          { n: '8+', label: 'jaar ervaring als stevige basis' },
+          { n: '1', label: 'duidelijke rol in richting en kwaliteit' },
+          { n: 'Veel', label: 'ruimte voor leiderschap en mentoring' },
+        ],
+        people: [
+          { imgId: 'p-senior-1', name: 'Ruben', role: 'Senior BIM-manager', quote: 'De waarde zit in rust brengen: zorgen dat teams weten wat ze wanneer nodig hebben.' },
+          { imgId: 'p-senior-2', name: 'Marieke', role: 'Lead projectinformatie', quote: 'Je moet kunnen schakelen tussen detail en strategie. Juist daar ligt de uitdaging.' },
+          { imgId: 'p-senior-3', name: 'Hakim', role: 'Senior engineering consultant', quote: 'Goede senioriteit is niet alles zelf doen, maar anderen beter laten werken.' },
+        ],
+        projTitle: 'Regie over ketens en meerjarige samenwerkingen',
+        projBody: 'Senioren regisseren raamcontracten en digital twin-trajecten: van landelijke installatiepartners tot monumentaal vastgoed. Relaties van jaren, geen projecten van weken.',
+        projImgId: 'proj-senior', projImgSrc: 'assets/bus-bouwplaats.png',
+        faq: [
+          { q: 'Wat verwacht BIM4ALL van senior professionals?', a: 'Dat je vakkennis combineert met overzicht, eigenaarschap en het vermogen om teams en klanten verder te brengen.' },
+          { q: 'Is mentoring onderdeel van de rol?', a: 'Ja. Senioren helpen starters en ervaren collega\'s groeien in vakinhoud, proces en projecthouding.' },
+          { q: 'Kan ik strategisch meedenken?', a: 'Zeker. We zoeken mensen die niet alleen uitvoeren, maar ook richting geven aan hoe we ons vak organiseren.' },
+        ],
+      },
+      staf: {
+        kicker: 'STAF · MARKETING, HR & ORGANISATIE',
+        title: 'Maak techniek zichtbaar en de organisatie sterker',
+        intro: 'Niet iedereen bij BIM4ALL modelleert. Onze staf maakt het verschil erómheen: marketing die techniek zichtbaar maakt, HR die de juiste mensen vindt en bindt, en office die alles soepel laat lopen. Je werkt midden tussen de vakmensen — dicht op de projecten, nooit op een eiland.',
+        ruimte: 'veel eigenaarschap in een groeiende organisatie: jij bouwt mee aan hoe BIM4ALL zich ontwikkelt, van merk tot werkgeverschap.',
+        cta: 'Bekijk stafvacatures',
+        imgId: 'route-img-staf', imgSrc: 'assets/team-overleg.png',
+        stats: [
+          { n: '65+', label: 'collega\'s binnen DCG om mee te bouwen' },
+          { n: '3', label: 'labels: Projects, Academie en Studio X' },
+          { n: '>20%', label: 'groei per jaar — jouw werk telt direct' },
+        ],
+        people: [
+          { imgId: 'p-staf-1', name: 'Collega marketing', role: 'Marketing & communicatie', quote: 'Techniek verkoopt zichzelf niet — het verhaal erachter wel. Dat verhaal maken wij samen met de projectteams.' },
+          { imgId: 'p-staf-2', name: 'Collega HR', role: 'HR & recruitment', quote: 'Wij zoeken twee soorten mensen: bouwkennis en technologiekennis. Die match maken is het mooiste werk dat er is.' },
+          { imgId: 'p-staf-3', name: 'Collega office', role: 'Office & organisatie', quote: 'Als alles soepel loopt, merkt niemand het. Dat is precies de bedoeling.' },
+        ],
+        projTitle: 'Jouw werk zie je terug in het hele merk',
+        projBody: 'Van de website en projectcases tot events en de Academie: staf werkt aan alles waarmee BIM4ALL naar buiten treedt en van binnen groeit.',
+        projImgId: 'proj-staf', projImgSrc: 'assets/team-samenwerken.png',
+        faq: [
+          { q: 'Moet ik verstand hebben van BIM of bouwen?', a: 'Nee. Interesse in de wereld waarin we werken helpt, maar wij leren je alles wat je nodig hebt — daar hebben we zelfs een eigen Academie voor.' },
+          { q: 'Hoe groot is het stafteam?', a: 'Compact en groeiend. Je krijgt dus veel verantwoordelijkheid en werkt direct samen met de directie en de teams.' },
+          { q: 'Werk ik voor één label of voor de hele groep?', a: 'Vaak voor de hele groep: BIM4ALL Projects, de Academie en Studio X delen merk, cultuur en organisatie.' },
+        ],
+      },
+    };
+  }
+
+  vacs() {
+    return {
+      student: [
+        { title: 'Stage BIM-modelleur Bouwkunde', body: 'Wil jij de bouw van de toekomst mee modelleren? Werk aan échte projecten en leer hoe het vak werkt.' },
+        { title: 'Stage BIM-modelleur Installatietechniek (E/W)', body: 'Voor studenten elektrotechniek of werktuigbouwkunde die willen zien hoe installaties digitaal tot leven komen.' },
+        { title: 'Stage Scan-to-BIM', body: 'Techniek, precisie en buitenwerk combineren? Duik in de wereld van 3D-laserscannen en bestaand vastgoed.' },
+        { title: 'Stage Marketing', body: 'Maak verhalen die blijven hangen — ontdek hoe je techniek zichtbaar maakt.' },
+        { title: 'Stage Leren & Ontwikkelen', body: 'Werk mee aan leren dat de bouw slimmer maakt, via de BIM4ALL Academie.' },
+      ],
+      starter: [
+        { title: 'BIM4ALL Traineeship', body: 'Ambitieus en toe aan een vliegende start? Ons traineeship combineert echte projecten met de Academie.' },
+        { title: 'BIM-modelleur Bouwkunde', body: 'Zet jouw skills in om ontwerpen uit te werken tot maakbare, productiegerede modellen.' },
+        { title: 'BIM-modelleur Elektrotechniek', body: 'Slimme gebouwen vragen om doordachte elektrotechniek — jij vertaalt ontwerp naar model.' },
+      ],
+      ervaren: [
+        { title: 'BIM Engineer Werktuigbouwkunde', body: 'Sta jij stevig in je schoenen en draai je je hand niet om voor complexe installaties?' },
+        { title: 'BIM-modelleur Werktuigbouwkunde', body: 'Zie jij de toegevoegde waarde van BIM voor installatietechniek? Bouw mee aan betere projecten.' },
+        { title: 'Technisch Specialist Scan-to-BIM', body: 'Werk met innovatieve scantechnologie aan de digitale basis van bestaand vastgoed.' },
+        { title: 'Trainer (BIM4ALL Academie)', body: 'Help professionals groeien in hun kennis van BIM en digitalisering — kennis delen als vak.' },
+      ],
+      senior: [
+        { title: 'Manager Scan-to-BIM', body: 'Leid de ontwikkeling van Scan-to-BIM en bouw mee aan de digitale basis van complexe projecten.' },
+        { title: 'Consultant', body: 'Help bouw- en installatiebedrijven om BIM succesvol te maken — proces én techniek.' },
+        { title: 'Projectleider digitalisering', body: 'Regisseer projecten en de afstemming tussen klant en keten. Bouwkennis is je basis.' },
+      ],
+      staf: [
+        { title: 'Marketing Strateeg BIM4ALL', body: 'Jij maakt techniek zichtbaar. Met sterke verhalen, slimme positionering en content die impact maakt.' },
+        { title: 'Stage Marketing', body: 'Student en graag verhalen maken die blijven hangen? Ontdek tijdens je stage hoe je techniek zichtbaar maakt.' },
+      ],
+    };
+  }
+
+  renderVals() {
+    const { route, openFaq } = this.state;
+    const r = this.routes()[route];
+
+    const tab = (active) => ({
+      fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '16px', fontWeight: 800, cursor: 'pointer',
+      padding: '22px 20px', borderRadius: '18px', transition: 'all .2s', display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center', textAlign: 'center',
+      border: '2px solid ' + (active ? '#14123a' : 'rgba(38,34,98,.14)'),
+      background: active ? '#14123a' : '#ffffff', color: active ? '#ffffff' : '#262262',
+    });
+    const tabSub = (active) => ({
+      fontSize: '12.5px', fontWeight: 600, color: active ? 'rgba(255,255,255,.65)' : 'rgba(38,34,98,.55)',
+    });
+
+    return {
+      goStudent: () => this.setState({ route: 'student', openFaq: 0 }),
+      goStarter: () => this.setState({ route: 'starter', openFaq: 0 }),
+      goErvaren: () => this.setState({ route: 'ervaren', openFaq: 0 }),
+      goSenior: () => this.setState({ route: 'senior', openFaq: 0 }),
+      goStaf: () => this.setState({ route: 'staf', openFaq: 0 }),
+      tabStaf: tab(route === 'staf'), tabSubStaf: tabSub(route === 'staf'),
+      rVacs: this.vacs()[route],
+      rOpenLabel: route === 'staf' ? 'Geen passende stafrol?' : 'Staat jouw rol er niet tussen?',
+      tabStudent: tab(route === 'student'), tabSubStudent: tabSub(route === 'student'),
+      tabStarter: tab(route === 'starter'), tabSubStarter: tabSub(route === 'starter'),
+      tabSubErvarenWrap: Object.assign({}, tab(route === 'ervaren'), {
+        border: '2px solid ' + (route === 'ervaren' ? '#14123a' : '#c1188d'),
+        position: 'relative', overflow: 'visible',
+      }),
+      tabSubErvaren: tabSub(route === 'ervaren'),
+      tabBadgeErvaren: {
+        position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)',
+        fontSize: '10px', fontWeight: 800, letterSpacing: '.1em', whiteSpace: 'nowrap',
+        background: '#c1188d', color: '#ffffff', padding: '5px 14px', borderRadius: '99px',
+      },
+      tabSenior: tab(route === 'senior'), tabSubSenior: tabSub(route === 'senior'),
+
+      rKicker: r.kicker, rTitle: r.title, rIntro: r.intro, rRuimte: r.ruimte, rCta: r.cta,
+      rImgId: r.imgId, rImgSrc: r.imgSrc,
+      rStats: r.stats,
+      rPeople: r.people,
+      rProjTitle: r.projTitle, rProjBody: r.projBody, rProjImgId: r.projImgId, rProjImgSrc: r.projImgSrc,
+      rFaq: r.faq.map((f, i) => ({
+        q: f.q, a: f.a,
+        open: openFaq === i,
+        icon: openFaq === i ? '−' : '+',
+        toggle: () => this.setState({ openFaq: openFaq === i ? -1 : i }),
+      })),
+      faqBtnStyle: {
+        fontFamily: "'Facit','Montserrat',sans-serif", cursor: 'pointer', width: '100%',
+        padding: '20px 26px', border: '1px solid rgba(38,34,98,.12)', borderRadius: '16px',
+        background: '#f5f5f9', textAlign: 'left', transition: 'all .2s', display: 'block',
+      },
+
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"></link>
+<link rel="stylesheet" href="./responsive.css"></link>
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:#f5f5f9;font-family:'Facit','Montserrat',system-ui,sans-serif}
+a{color:#262262;text-decoration:none}a:hover{color:#14123a}
+@keyframes b4a-pulse{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes b4a-menu{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div id="top" data-screen-label="Homepage v7 — Operating System" style="min-width:1280px;color:#262262">
+
+  <!-- ===== NAV ===== -->
+  <header style="position:sticky;top:0;z-index:50;background:#14123a" onMouseLeave="{{ closeMenu }}">
+    <div style="padding:18px 56px">
+      <div style="display:flex;align-items:center;justify-content:space-between;max-width:1380px;margin:0 auto">
+        <a href="#top" style="display:flex;align-items:center;gap:10px;color:#ffffff" style-hover="color:#ffffff">
+          <span style="font-size:21px;font-weight:800;color:#ffffff;letter-spacing:-.01em">BIM4ALL</span>
+          <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#14123a;background:#ffffff;padding:4px 10px;border-radius:99px">PROJECTS</span>
+        </a>
+        <nav style="display:flex;align-items:center;gap:30px;font-size:14.5px;font-weight:600;white-space:nowrap">
+          <button onMouseEnter="{{ openWil }}" onClick="{{ toggleWil }}" style="{{ navBtnWil }}">Ik wil… <span style="font-size:10px;opacity:.7">▾</span></button>
+          <button onMouseEnter="{{ openOplossing }}" onClick="{{ toggleOplossing }}" style="{{ navBtnOplossing }}">Oplossingen <span style="font-size:10px;opacity:.7">▾</span></button>
+          <a href="projecten.html" onMouseEnter="{{ closeMenu }}" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Projecten</a>
+          <a href="organisatie.html" onMouseEnter="{{ closeMenu }}" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Organisatie</a>
+          <a href="vacatures.html" onMouseEnter="{{ closeMenu }}" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Werken bij</a>
+          <a href="https://www.bim4all-academie.com" target="_blank" rel="noopener" onMouseEnter="{{ closeMenu }}" style="color:rgba(255,255,255,.55);padding:10px 0" style-hover="color:#ffffff">Academy ↗</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:14px">
+          <a href="#gids" style="border:1.5px solid rgba(255,255,255,.4);color:#ffffff;font-size:14px;font-weight:700;padding:11px 24px;border-radius:99px;transition:border-color .2s" style-hover="border-color:#ffffff;color:#ffffff">Routewijzer</a>
+          <a href="contact.html" style="background:#c1188d;color:#ffffff;font-size:14px;font-weight:700;padding:12px 26px;border-radius:99px;transition:background .2s" style-hover="background:#9c1372;color:#ffffff">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- mega menu: ik wil -->
+    <sc-if value="{{ menuWil }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:0;right:0;top:100%;background:#ffffff;border-top:1px solid rgba(38,34,98,.08);box-shadow:0 32px 64px rgba(20,18,58,.18);animation:b4a-menu .22s ease">
+        <div style="max-width:1380px;margin:0 auto;padding:40px 56px;display:grid;grid-template-columns:280px 1fr 1fr;gap:32px">
+          <div style="display:flex;flex-direction:column;gap:10px;padding-right:24px;border-right:1px solid rgba(38,34,98,.1)">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(38,34,98,.45)">IK WIL…</span>
+            <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(38,34,98,.7);font-weight:600">Begin bij wat jij wilt bereiken — wij laten zien hoe we dat oplossen en wat het opleverde bij anderen.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <sc-for list="{{ wilLinksA }}" as="w" hint-placeholder-count="3">
+              <a href="#gids" onClick="{{ w.pick }}" style="display:block;padding:15px 20px;border-radius:14px;color:#262262;font-size:15px;font-weight:700;transition:background .2s" style-hover="background:#f5f5f9;color:#262262">{{ w.label }}</a>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <sc-for list="{{ wilLinksB }}" as="w" hint-placeholder-count="3">
+              <a href="#gids" onClick="{{ w.pick }}" style="display:block;padding:15px 20px;border-radius:14px;color:#262262;font-size:15px;font-weight:700;transition:background .2s" style-hover="background:#f5f5f9;color:#262262">{{ w.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- mega menu: oplossingen -->
+    <sc-if value="{{ menuOplossing }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:0;right:0;top:100%;background:#ffffff;border-top:1px solid rgba(38,34,98,.08);box-shadow:0 32px 64px rgba(20,18,58,.18);animation:b4a-menu .22s ease">
+        <div style="max-width:1380px;margin:0 auto;padding:40px 56px;display:grid;grid-template-columns:280px 1fr 1fr 1fr;gap:32px">
+          <div style="display:flex;flex-direction:column;gap:10px;padding-right:24px;border-right:1px solid rgba(38,34,98,.1)">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(38,34,98,.45)">OPLOSSINGEN</span>
+            <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(38,34,98,.7);font-weight:600">Drie oplossingen die elkaar versterken — van ontwerp tot en met beheer. Met heldere producten en een laagdrempelige eerste stap.</p>
+          </div>
+          <a href="engineering.html" onClick="{{ closeMenu }}" style="display:flex;flex-direction:column;gap:8px;padding:22px 24px;border-radius:16px;color:#262262;transition:background .2s" style-hover="background:#f5f5f9;color:#262262">
+            <span style="font-size:11px;font-weight:800;color:rgba(38,34,98,.4)">01</span>
+            <span style="font-size:18px;font-weight:800;letter-spacing:-.01em">Engineering</span>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(38,34,98,.6)">Van definitief ontwerp tot uitvoering: maakbaar, uitvoerbaar, integraal. Product: Maakbaar Plan.</p>
+          </a>
+          <a href="projectregie.html" onClick="{{ closeMenu }}" style="display:flex;flex-direction:column;gap:8px;padding:22px 24px;border-radius:16px;color:#262262;transition:background .2s" style-hover="background:#f5f5f9;color:#262262">
+            <span style="font-size:11px;font-weight:800;color:rgba(38,34,98,.4)">02</span>
+            <span style="font-size:18px;font-weight:800;letter-spacing:-.01em">Projectregie</span>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(38,34,98,.6)">Grip op je project: BIM-coördinatie, informatiemanagement, samenwerking. Product: Digitale Bouwplaats.</p>
+          </a>
+          <a href="digital-twin.html" onClick="{{ closeMenu }}" style="display:flex;flex-direction:column;gap:8px;padding:22px 24px;border-radius:16px;color:#262262;transition:background .2s" style-hover="background:#f5f5f9;color:#262262">
+            <span style="font-size:11px;font-weight:800;color:rgba(38,34,98,.4)">03</span>
+            <span style="font-size:18px;font-weight:800;letter-spacing:-.01em">Digital Twin</span>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(38,34,98,.6)">Betrouwbare gebouwinformatie over de hele levenscyclus. Product: Digital Twin &amp; Vastgoeddata.</p>
+          </a>
+        </div>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <div style="background:#14123a;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;padding:104px 56px 0">
+    <div style="max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px">
+      <span data-reveal="0" style="font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#d9d7ee;border:1px solid rgba(255,255,255,.3);padding:9px 22px;border-radius:99px">ENGINEERING · PROJECTREGIE · DIGITAL TWIN</span>
+      <h1 data-reveal="80" style="margin:0;font-size:66px;line-height:1.06;font-weight:800;color:#ffffff;letter-spacing:-.025em;text-wrap:balance">Regisseur van de digitale <span style="color:#b4d232">gebouwde omgeving</span></h1>
+      <p data-reveal="160" style="margin:0;font-size:19px;line-height:1.7;color:rgba(255,255,255,.7);max-width:60ch">Betere informatie leidt tot betere beslissingen. Wij combineren engineering, projectregie en betrouwbare gebouwinformatie — zodat jij grip houdt van ontwerp tot en met beheer.</p>
+      <div data-reveal="240" style="display:flex;gap:16px;align-items:center">
+        <a href="contact.html" style="background:#c1188d;color:#ffffff;font-size:15.5px;font-weight:700;padding:17px 38px;border-radius:99px;transition:background .2s" style-hover="background:#9c1372;color:#ffffff">Plan een kennissessie</a>
+        <a href="#ikwil" style="border:1.5px solid rgba(255,255,255,.4);color:#ffffff;font-size:15.5px;font-weight:700;padding:16px 34px;border-radius:99px;transition:border-color .2s" style-hover="border-color:#ffffff;color:#ffffff">Wat wil jij oplossen?</a>
+      </div>
+    </div>
+    <div style="max-width:1180px;margin:64px auto 0">
+      <div data-reveal="120" style="height:460px;border-radius:24px 24px 0 0;overflow:hidden;position:relative">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-team-v7" shape="rect" src="assets/engineer-bim-model.png" placeholder="Sleep hier een foto of videostill van projecten" hint-size="100%,460px"></x-import>
+      </div>
+      <div data-reveal="200" style="display:flex;justify-content:center;position:relative;margin-top:-34px;padding-bottom:10px">
+        <div style="display:flex;gap:36px;align-items:center;justify-content:center;background:#ffffff;border-radius:99px;padding:20px 44px;box-shadow:0 16px 48px rgba(20,18,58,.25);white-space:nowrap">
+          <span style="font-size:15px;font-weight:700;color:#262262">✓ Bewezen in de bouwpraktijk</span>
+          <span style="font-size:15px;font-weight:700;color:#262262">✓ Van ontwerp tot en met beheer</span>
+          <span style="font-size:15px;font-weight:700;color:#262262">✓ Eén partner voor je hele keten</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LOGOS + KERNGETALLEN ===== -->
+  <div style="padding:88px 56px 64px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:26px;align-items:center">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.18em;color:rgba(38,34,98,.45)">ZIJ KOZEN AL VOOR ONS</span>
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:20px;width:100%;max-width:1100px">
+          <div style="height:72px;filter:grayscale(1);opacity:.75"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="logo-1" shape="rect" fit="contain" placeholder="Logo klant 1" hint-size="100%,72px"></x-import></div>
+          <div style="height:72px;filter:grayscale(1);opacity:.75"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="logo-2" shape="rect" fit="contain" placeholder="Logo klant 2" hint-size="100%,72px"></x-import></div>
+          <div style="height:72px;filter:grayscale(1);opacity:.75"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="logo-3" shape="rect" fit="contain" placeholder="Logo klant 3" hint-size="100%,72px"></x-import></div>
+          <div style="height:72px;filter:grayscale(1);opacity:.75"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="logo-4" shape="rect" fit="contain" placeholder="Logo klant 4" hint-size="100%,72px"></x-import></div>
+          <div style="height:72px;filter:grayscale(1);opacity:.75"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="logo-5" shape="rect" fit="contain" placeholder="Logo klant 5" hint-size="100%,72px"></x-import></div>
+          <div style="height:72px;filter:grayscale(1);opacity:.75"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="logo-6" shape="rect" fit="contain" placeholder="Logo klant 6" hint-size="100%,72px"></x-import></div>
+        </div>
+      </div>
+      <div data-reveal="100" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(38,34,98,.12);border-bottom:1px solid rgba(38,34,98,.12);padding:44px 0">
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><span style="font-size:42px;font-weight:800;color:#262262">2013</span><span style="font-size:14px;font-weight:600;color:rgba(38,34,98,.6)">Opgericht — 13 jaar bewezen</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><span style="font-size:42px;font-weight:800;color:#262262">300+</span><span style="font-size:14px;font-weight:600;color:rgba(38,34,98,.6)">Klanten in bouw en vastgoed</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><span style="font-size:42px;font-weight:800;color:#262262">500+</span><span style="font-size:14px;font-weight:600;color:rgba(38,34,98,.6)">Projecten per jaar</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><span style="font-size:42px;font-weight:800;color:#c1188d">65+</span><span style="font-size:14px;font-weight:600;color:rgba(38,34,98,.6)">Collega's binnen DCG</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== OVERTUIGING ===== -->
+  <div style="padding:72px 56px 96px">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:26px;text-align:center;align-items:center">
+      <span data-reveal="0" style="font-size:12px;font-weight:700;letter-spacing:.18em;color:rgba(38,34,98,.45)">ONZE OVERTUIGING</span>
+      <h2 data-reveal="80" style="margin:0;font-size:44px;line-height:1.18;font-weight:800;letter-spacing:-.02em;color:#262262;text-wrap:balance">Betere informatie leidt tot <span style="color:#c1188d">betere beslissingen</span>.</h2>
+      <p data-reveal="160" style="margin:0;font-size:17px;line-height:1.75;color:rgba(38,34,98,.65);max-width:62ch">Iedere beslissing over een gebouw — in ontwerp, uitvoering of beheer — is zo goed als de informatie eronder. Daarom verkopen wij geen modellen en geen uren, maar voorspelbaarheid en grip. Het model is een hulpmiddel; de beslissing is het product.</p>
+      <p data-reveal="220" style="margin:0;font-size:17px;line-height:1.75;color:rgba(38,34,98,.65);max-width:62ch">We zeggen niet dat we de beste zijn. We laten zien waarom het werkt — in projecten, in cijfers en in klanten die jaar na jaar terugkomen.</p>
+    </div>
+  </div>
+
+  <!-- ===== IK WIL… ===== -->
+  <div id="ikwil" style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#262262;background:rgba(38,34,98,.08);padding:8px 18px;border-radius:99px">BEGIN BIJ JOUW DOEL</span>
+        <h2 style="margin:0;font-size:46px;line-height:1.08;font-weight:800;letter-spacing:-.02em;color:#262262;text-wrap:balance">Ik wil…</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:rgba(38,34,98,.62);max-width:62ch">Je zoekt geen BIM-coördinator — je bent je grip kwijt. Kies wat jij wilt bereiken; wij laten meteen zien hoe we het oplossen en wat het bij anderen opleverde.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <sc-for list="{{ wilCards }}" as="w" hint-placeholder-count="6">
+          <a href="#gids" onClick="{{ w.pick }}" style="display:flex;flex-direction:column;gap:10px;padding:30px 30px;background:#ffffff;border-radius:20px;border:1px solid rgba(38,34,98,.1);color:#262262;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-5px);box-shadow:0 20px 48px rgba(20,18,58,.13);color:#262262">
+            <span style="font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.3">{{ w.label }}</span>
+            <span style="font-size:13.5px;line-height:1.6;color:rgba(38,34,98,.6)">{{ w.sub }}</span>
+            <span style="margin-top:auto;font-size:13.5px;font-weight:700;color:#c1188d">Bekijk de oplossing →</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ROUTES (ICP) ===== -->
+  <div id="routes" style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#262262;background:rgba(38,34,98,.08);padding:8px 18px;border-radius:99px">VOOR WIE</span>
+        <h2 style="margin:0;font-size:46px;line-height:1.08;font-weight:800;letter-spacing:-.02em;color:#262262;text-wrap:balance">Herken je vraagstuk</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:rgba(38,34,98,.62);max-width:62ch">Aannemer, installateur of gebouweigenaar — de vraagstukken lijken op elkaar: grip op complexe projecten, betrouwbare informatie en een partner die verantwoordelijkheid neemt.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <a data-reveal="0" href="#gids" onClick="{{ pickBouw }}" style="display:flex;flex-direction:column;gap:16px;padding:40px 36px;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1);color:#262262;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 24px 56px rgba(20,18,58,.14);color:#262262">
+          <span style="width:52px;height:52px;border-radius:16px;background:#14123a;color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800">01</span>
+          <h3 style="margin:0;font-size:23px;line-height:1.25;font-weight:800;letter-spacing:-.01em">Aannemers</h3>
+          <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(38,34,98,.65)">Voorspelbare projecten realiseren: engineering, coördinatie en projectregie gecombineerd — faalkosten omlaag, uitvoering beheersbaar.</p>
+          <span style="margin-top:auto;font-size:14.5px;font-weight:700;color:#262262">Start jouw route →</span>
+        </a>
+        <a data-reveal="100" href="#gids" onClick="{{ pickInstall }}" style="display:flex;flex-direction:column;gap:16px;padding:40px 36px;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1);color:#262262;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 24px 56px rgba(20,18,58,.14);color:#262262">
+          <span style="width:52px;height:52px;border-radius:16px;background:#14123a;color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800">02</span>
+          <h3 style="margin:0;font-size:23px;line-height:1.25;font-weight:800;letter-spacing:-.01em">Installateurs</h3>
+          <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(38,34,98,.65)">Steeds complexere installaties, integrale samenwerking: hoogwaardige engineering, afstemming tussen disciplines en efficiënte werkvoorbereiding.</p>
+          <span style="margin-top:auto;font-size:14.5px;font-weight:700;color:#262262">Start jouw route →</span>
+        </a>
+        <a data-reveal="200" href="#gids" onClick="{{ pickVastgoed }}" style="display:flex;flex-direction:column;gap:16px;padding:40px 36px;background:#14123a;border-radius:24px;color:#ffffff;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 24px 56px rgba(20,18,58,.3);color:#ffffff">
+          <span style="width:52px;height:52px;border-radius:16px;background:#ffffff;color:#14123a;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800">03</span>
+          <h3 style="margin:0;font-size:23px;line-height:1.25;font-weight:800;letter-spacing:-.01em">Gebouweigenaren</h3>
+          <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(255,255,255,.7)">Grip op je vastgoed — niet alleen bij nieuwbouw of renovatie, maar over de volledige levenscyclus. Betrouwbare gebouwinformatie als basis voor elke beslissing.</p>
+          <span style="margin-top:auto;font-size:14.5px;font-weight:700;color:#ffffff">Start jouw route →</span>
+        </a>
+      </div>
+      <p data-reveal="0" style="margin:0;text-align:center;font-size:13.5px;color:rgba(38,34,98,.5)">Ook actief in industrie, zorg, onderwijs en overheid — juist waar continuïteit telt. <a href="contact.html" style="text-decoration:underline;color:#262262" style-hover="color:#c1188d">Plan een kennissessie</a>.</p>
+    </div>
+  </div>
+
+  <!-- ===== DE ROUTEWIJZER ===== -->
+  <div id="gids" style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;background:#14123a;border-radius:32px;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;padding:80px 64px">
+      <div style="max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+        <div data-reveal="0" style="display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center">
+          <span style="display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.18em;color:#d9d7ee;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:99px"><span style="width:7px;height:7px;border-radius:50%;background:#b4d232;animation:b4a-pulse 2s infinite"></span>DE ROUTEWIJZER</span>
+          <h2 style="margin:0;font-size:42px;line-height:1.1;font-weight:800;color:#ffffff;letter-spacing:-.02em;text-wrap:balance">Twee vragen. Dan weet je waar je moet zijn.</h2>
+          <p style="margin:0;font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.65);max-width:58ch">Vertel kort waar je staat — wij wijzen je de juiste oplossing, laten een project zien van een organisatie zoals de jouwe en geven je een concrete eerste stap.</p>
+        </div>
+
+        <div style="background:#ffffff;border-radius:24px;padding:44px 48px">
+
+          <sc-if value="{{ gidsStep1 }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:22px">
+              <span style="font-size:11.5px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.45)">VRAAG 1 / 2</span>
+              <h3 style="margin:0;font-size:23px;font-weight:800;color:#262262;letter-spacing:-.01em">Wat beschrijft jou het best?</h3>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+                <button onClick="{{ whoBouw }}" style="{{ whoBtnBouw }}">Ik werk bij een aannemer</button>
+                <button onClick="{{ whoInstall }}" style="{{ whoBtnInstall }}">Ik werk bij een installateur</button>
+                <button onClick="{{ whoVastgoed }}" style="{{ whoBtnVastgoed }}">Ik beheer of bezit vastgoed</button>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ gidsStep2 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:22px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline">
+                <span style="font-size:11.5px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.45)">VRAAG 2 / 2</span>
+                <button onClick="{{ gidsBack }}" style="{{ backBtnStyle }}">← terug</button>
+              </div>
+              <h3 style="margin:0;font-size:23px;font-weight:800;color:#262262;letter-spacing:-.01em">Waar loop je tegenaan?</h3>
+              <div style="display:grid;grid-template-columns:1fr;gap:12px">
+                <sc-for list="{{ painOptions }}" as="opt" hint-placeholder-count="3">
+                  <button onClick="{{ opt.pick }}" style="{{ painBtnStyle }}" style-hover="border-color:#262262;background:#f5f5f9">{{ opt.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ gidsStep3 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:26px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline">
+                <span style="font-size:11.5px;font-weight:700;letter-spacing:.14em;color:#ffffff;background:#262262;padding:6px 14px;border-radius:99px">JOUW ROUTE</span>
+                <button onClick="{{ gidsReset }}" style="{{ backBtnStyle }}">↺ opnieuw</button>
+              </div>
+              <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:start">
+                <div style="display:flex;flex-direction:column;gap:14px">
+                  <span style="font-size:11.5px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.5)">{{ resultKicker }}</span>
+                  <h3 style="margin:0;font-size:27px;line-height:1.15;font-weight:800;color:#262262;letter-spacing:-.01em">{{ resultTitle }}</h3>
+                  <p style="margin:0;font-size:15.5px;line-height:1.7;color:rgba(38,34,98,.7)">{{ resultBody }}</p>
+                  <div style="display:flex;gap:16px;margin-top:8px;align-items:center">
+                    <a href="contact.html" style="background:#c1188d;color:#ffffff;font-size:14.5px;font-weight:700;padding:14px 30px;border-radius:99px;transition:background .2s" style-hover="background:#9c1372;color:#ffffff">{{ resultCta }}</a>
+                    <a href="projecten.html" style="color:#262262;font-size:14.5px;font-weight:700;border-bottom:2px solid rgba(38,34,98,.25);padding-bottom:2px" style-hover="border-color:#262262;color:#262262">Meer projecten →</a>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px;padding:26px 28px;background:#f5f5f9;border-radius:18px">
+                  <span style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.45)">BEWIJS UIT DE PRAKTIJK</span>
+                  <span style="font-size:17px;font-weight:800;color:#262262">{{ resultCase }}</span>
+                  <p style="margin:0;font-size:13.5px;line-height:1.65;color:rgba(38,34,98,.65)">{{ resultCaseBody }}</p>
+                  <a href="{{ resultCaseHref }}" style="font-size:13.5px;font-weight:700;color:#262262;border-bottom:2px solid rgba(38,34,98,.25);align-self:flex-start;padding-bottom:1px" style-hover="border-color:#262262;color:#262262">{{ resultCaseLinkLabel }}</a>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+        </div>
+        <p data-reveal="0" style="margin:0;text-align:center;font-size:13px;color:rgba(255,255,255,.45)">De routewijzer werkt zonder account en zonder data-opslag. Liever een mens? <a href="contact.html" style="color:rgba(255,255,255,.85);text-decoration:underline" style-hover="color:#ffffff">Plan een kennissessie</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== OPLOSSINGEN ===== -->
+  <div id="oplossingen" style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#262262;background:rgba(38,34,98,.08);padding:8px 18px;border-radius:99px">OPLOSSINGEN</span>
+        <h2 style="margin:0;font-size:46px;line-height:1.08;font-weight:800;letter-spacing:-.02em;color:#262262;text-wrap:balance">Drie oplossingen, één systeem</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:rgba(38,34,98,.62);max-width:62ch">Engineering legt de basis, projectregie bewaakt de uitvoering, Digital Twin houdt de waarde levend ná oplevering. Elk met heldere producten en een laagdrempelige eerste stap.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        <div data-reveal="0" style="display:flex;flex-direction:column;gap:14px;padding:36px 32px;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1)">
+          <span style="font-size:11.5px;font-weight:700;letter-spacing:.12em;color:rgba(38,34,98,.5)">01 · ONTWERP → UITVOERING</span>
+          <h3 style="margin:0;font-size:23px;font-weight:800;color:#262262;letter-spacing:-.01em">Engineering</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.65;color:rgba(38,34,98,.65)">Van definitief ontwerp naar een maakbaar, uitvoerbaar en integraal plan. We denken mee over uitvoerbaarheid, planning en leveranciers — het model is het hulpmiddel, de juiste keuze het resultaat.</p>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:#f5f5f9;border-radius:12px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(38,34,98,.5)">PRODUCT</span>
+            <span style="font-size:14px;font-weight:700;color:#262262">Maakbaar Plan — per project, vaste scope</span>
+          </div>
+          <a href="contact.html" style="margin-top:auto;font-size:14px;font-weight:700;color:#c1188d" style-hover="color:#9c1372">Start met een Engineering QuickScan →</a>
+        </div>
+        <div data-reveal="100" style="display:flex;flex-direction:column;gap:14px;padding:36px 32px;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1)">
+          <span style="font-size:11.5px;font-weight:700;letter-spacing:.12em;color:rgba(38,34,98,.5)">02 · TIJDENS HET PROJECT</span>
+          <h3 style="margin:0;font-size:23px;font-weight:800;color:#262262;letter-spacing:-.01em">Projectregie</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.65;color:rgba(38,34,98,.65)">Grip, rust en voorspelbaarheid: BIM-coördinatie, BIM-management en informatiemanagement die disciplines, processen en teams verbinden — afspraken waar iedereen zich aan houdt.</p>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:#f5f5f9;border-radius:12px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(38,34,98,.5)">PRODUCT</span>
+            <span style="font-size:14px;font-weight:700;color:#262262">Digitale Bouwplaats — regie per project of keten</span>
+          </div>
+          <a href="contact.html" style="margin-top:auto;font-size:14px;font-weight:700;color:#c1188d" style-hover="color:#9c1372">Vraag een BIM Review aan →</a>
+        </div>
+        <div data-reveal="200" style="display:flex;flex-direction:column;gap:14px;padding:36px 32px;background:#14123a;border-radius:24px">
+          <span style="font-size:11.5px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.6)">03 · NA OPLEVERING, VOOR ALTIJD</span>
+          <h3 style="margin:0;font-size:23px;font-weight:800;color:#ffffff;letter-spacing:-.01em">Digital Twin</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.65;color:rgba(255,255,255,.7)">Betrouwbare gebouwinformatie over de volledige levenscyclus: scan-to-BIM, reality capture en assetdata als één informatiebasis voor beheer, onderhoud en renovatie — gekoppeld aan FMIS, GBS en MJOP.</p>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:rgba(255,255,255,.08);border-radius:12px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.5)">PRODUCT</span>
+            <span style="font-size:14px;font-weight:700;color:#ffffff">Digital Twin &amp; Vastgoeddata — meerjarig, klein beginnen</span>
+          </div>
+          <a href="contact.html" style="margin-top:auto;font-size:14px;font-weight:700;color:#b4d232" style-hover="color:#ffffff">Doe de Digital Twin Scan →</a>
+        </div>
+      </div>
+      <p data-reveal="0" style="margin:0;text-align:center;font-size:13.5px;color:rgba(38,34,98,.5)">Nog geen concreet project, wel een digitale ambitie? De <strong>Digitale Roadmap</strong> is de instap: samen bepalen waar je staat en welke stap eerst komt.</p>
+    </div>
+  </div>
+
+  <!-- ===== PROJECTEN ===== -->
+  <div style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+      <div data-reveal="0" style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#262262;background:rgba(38,34,98,.08);padding:8px 18px;border-radius:99px;align-self:flex-start">PROJECTEN</span>
+          <h2 style="margin:0;font-size:46px;line-height:1.08;font-weight:800;letter-spacing:-.02em;color:#262262">Bewijs, geen beloftes</h2>
+        </div>
+        <a href="projecten.html" style="font-size:15px;font-weight:700;color:#262262;white-space:nowrap;border-bottom:2px solid rgba(38,34,98,.25);padding-bottom:2px" style-hover="border-color:#262262;color:#262262">Alle projecten →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:24px">
+        <a data-reveal="0" href="case-robin-wood.html" style="display:flex;flex-direction:column;background:#ffffff;border-radius:24px;overflow:hidden;border:1px solid rgba(38,34,98,.1);color:#262262;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 24px 56px rgba(20,18,58,.14);color:#262262">
+          <div style="height:290px">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="case-robinwood" shape="rect" src="assets/digital-twin-review.png" placeholder="Foto Robin Wood, Amsterdam" hint-size="100%,290px"></x-import>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding:28px 30px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.5)">ENGINEERING · HOUTBOUW</span>
+            <h3 style="margin:0;font-size:23px;font-weight:800;letter-spacing:-.01em">Robin Wood, Amsterdam</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.65;color:rgba(38,34,98,.65)">Complexe houtbouw, integraal uitgewerkt en gecoördineerd — een plan dat klopte voordat de bouw begon.</p>
+            <span style="font-size:14px;font-weight:700;color:#262262;margin-top:4px">Lees de case →</span>
+          </div>
+        </a>
+        <a data-reveal="100" href="projecten.html" style="display:flex;flex-direction:column;background:#ffffff;border-radius:24px;overflow:hidden;border:1px solid rgba(38,34,98,.1);color:#262262;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 24px 56px rgba(20,18,58,.14);color:#262262">
+          <div style="height:190px">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="case-mauritshuis" shape="rect" src="assets/navvis-scanner.png" placeholder="Foto scan-to-BIM" hint-size="100%,190px"></x-import>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding:24px 26px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.5)">DIGITAL TWIN · ERFGOED</span>
+            <h3 style="margin:0;font-size:19px;font-weight:800;letter-spacing:-.01em">Monumentaal museum</h3>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(38,34,98,.65)">Rijksmonument met collectie, digitaal ontsloten voor beheer en onderhoud.</p>
+          </div>
+        </a>
+        <a data-reveal="200" href="projecten.html" style="display:flex;flex-direction:column;background:#ffffff;border-radius:24px;overflow:hidden;border:1px solid rgba(38,34,98,.1);color:#262262;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 24px 56px rgba(20,18,58,.14);color:#262262">
+          <div style="height:190px">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="case-unica" shape="rect" src="assets/bus-bouwplaats.png" placeholder="Foto samenwerking" hint-size="100%,190px"></x-import>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding:24px 26px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.5)">PROJECTREGIE · RAAMCONTRACT</span>
+            <h3 style="margin:0;font-size:19px;font-weight:800;letter-spacing:-.01em">Landelijk raamcontract installatietechniek</h3>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(38,34,98,.65)">Vaste engineeringpartner van een landelijke installateur — samenwerken in plaats van inkopen.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ZO WERKEN WIJ ===== -->
+  <div style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;background:#14123a;border-radius:32px;padding:72px 64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:72px;align-items:center">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;color:#d9d7ee;border:1px solid rgba(255,255,255,.3);padding:8px 18px;border-radius:99px;align-self:flex-start">ZO WERKEN WIJ</span>
+        <h2 style="margin:0;font-size:40px;line-height:1.12;font-weight:800;color:#ffffff;letter-spacing:-.02em;text-wrap:balance">We beginnen bij de vraag achter de vraag</h2>
+        <p style="margin:0;font-size:16.5px;line-height:1.75;color:rgba(255,255,255,.7)">Je vraagt misschien om een model, een Digital Twin of een scan. Daarachter ligt vrijwel altijd een groter doel: een project dat voorspelbaar moet lopen, een gebouw dat beter beheerd moet worden. Wij beginnen pas als dat doel helder is — en adviseren als een andere aanpak beter past.</p>
+        <p style="margin:0;font-size:16.5px;line-height:1.75;color:rgba(255,255,255,.7)">AI en automatisering nemen bij ons het repeterende werk over. Wat jij ervan merkt: stabielere kwaliteit, en engineers die tijd hebben voor afstemming, controle en de keuzes die er echt toe doen.</p>
+      </div>
+      <div data-reveal="120" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:8px;padding:26px 26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px">
+          <span style="font-size:12px;font-weight:700;color:#b4d232">01</span>
+          <p style="margin:0;font-size:16px;font-weight:800;color:#ffffff">Vraagstuk eerst</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.65)">Technologie volgt het vraagstuk — nooit andersom.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding:26px 26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px">
+          <span style="font-size:12px;font-weight:700;color:#b4d232">02</span>
+          <p style="margin:0;font-size:16px;font-weight:800;color:#ffffff">Waarde, geen uren</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.65)">Resultaatgerichte afspraken: helder wat je krijgt en wat het oplevert.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding:26px 26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px">
+          <span style="font-size:12px;font-weight:700;color:#b4d232">03</span>
+          <p style="margin:0;font-size:16px;font-weight:800;color:#ffffff">Technologie versterkt vakmanschap</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.65)">AI en eigen tooling ondersteunen onze engineers — vervangen ze nooit.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding:26px 26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px">
+          <span style="font-size:12px;font-weight:700;color:#b4d232">04</span>
+          <p style="margin:0;font-size:16px;font-weight:800;color:#ffffff">Lange termijn</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.65)">Liever een relatie die jaren groeit dan een project dat stopt bij oplevering.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ECOSYSTEEM ===== -->
+  <div style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <a data-reveal="0" href="https://www.bim4all-academie.com" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:12px;padding:36px 38px;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1);color:#262262;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-5px);box-shadow:0 20px 48px rgba(20,18,58,.13);color:#262262">
+        <span style="font-size:11.5px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.5)">BIM4ALL ACADEMY</span>
+        <h3 style="margin:0;font-size:22px;font-weight:800;letter-spacing:-.01em">Wil je niet alleen het project uitvoeren, maar ook je organisatie digitaliseren?</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.65;color:rgba(38,34,98,.65)">Trainingen, consultancy en opleidingen — bij ons zusterbedrijf BIM4ALL Academy.</p>
+        <span style="font-size:14px;font-weight:700;color:#c1188d">Naar de Academy ↗</span>
+      </a>
+      <a data-reveal="100" href="https://www.studio-x.nl" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:12px;padding:36px 38px;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1);color:#262262;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-5px);box-shadow:0 20px 48px rgba(20,18,58,.13);color:#262262">
+        <span style="font-size:11.5px;font-weight:700;letter-spacing:.14em;color:rgba(38,34,98,.5)">STUDIO X</span>
+        <h3 style="margin:0;font-size:22px;font-weight:800;letter-spacing:-.01em">Wil je software, AI of digitale producten ontwikkelen?</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.65;color:rgba(38,34,98,.65)">Het innovatielab van Digital Construction Group — van idee tot werkend product.</p>
+        <span style="font-size:14px;font-weight:700;color:#c1188d">Naar Studio X ↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== WERKEN BIJ ===== -->
+  <div style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#262262;background:rgba(38,34,98,.08);padding:8px 18px;border-radius:99px;align-self:flex-start">WERKEN BIJ</span>
+        <h2 style="margin:0;font-size:38px;line-height:1.14;font-weight:800;letter-spacing:-.02em;color:#262262;text-wrap:balance">Jij brengt bouwkennis óf technologie. Wij brengen je de andere helft.</h2>
+        <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(38,34,98,.65)">Van trainee tot ervaren projectleider: bij ons werken vakmensen en technologen samen aan de digitale gebouwde omgeving. Betrokken, vooruitstrevend en echt.</p>
+        <a href="vacatures.html" style="border:2px solid #262262;color:#262262;font-size:14.5px;font-weight:700;padding:14px 32px;border-radius:99px;align-self:flex-start;transition:all .2s;margin-top:6px" style-hover="background:#262262;color:#ffffff">Bekijk vacatures</a>
+      </div>
+      <div data-reveal="120" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px">
+        <div style="height:340px;border-radius:24px;overflow:hidden">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-1" shape="rect" src="assets/team-overleg.png" placeholder="Foto collega aan het werk" hint-size="100%,340px"></x-import>
+        </div>
+        <div style="height:340px;border-radius:24px;overflow:hidden;margin-top:28px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-2" shape="rect" src="assets/team-samenwerken.png" placeholder="Foto collega + digital twin" hint-size="100%,340px"></x-import>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SPARREN + FOOTER ===== -->
+  <div style="background:#14123a;padding:64px 56px 44px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+      <div data-reveal="0" style="display:flex;align-items:center;justify-content:space-between;gap:40px;border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:28px 36px">
+        <div style="display:flex;align-items:center;gap:20px">
+          <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="contact-avatar" shape="circle" src="assets/portret-contact.png" placeholder="Foto" hint-size="64px,64px"></x-import>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-size:19px;font-weight:800;color:#ffffff">Even sparren over jouw project of vastgoed?</span>
+            <span style="font-size:14.5px;color:rgba(255,255,255,.65)">We denken vrijblijvend met je mee — binnen één werkdag reactie.</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;white-space:nowrap">
+          <span style="font-size:17px;font-weight:700;color:rgba(255,255,255,.85)">0548 - 37 67 97</span>
+          <a href="contact.html" style="background:#c1188d;color:#ffffff;font-size:15px;font-weight:700;padding:15px 32px;border-radius:99px;transition:background .2s" style-hover="background:#9c1372;color:#ffffff">Plan een kennissessie →</a>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:19px;font-weight:800;color:#ffffff">BIM4ALL</span>
+            <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#14123a;background:#ffffff;padding:3px 9px;border-radius:99px">PROJECTS</span>
+          </div>
+          <span style="font-size:14px;line-height:1.75;color:rgba(255,255,255,.55)">Regisseur van de digitale gebouwde omgeving.<br>Nijverdalseweg 133, 7461 AG Rijssen<br>+31 (0)548 - 37 67 97 · info@bim4all.com</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.4);margin-bottom:6px">OPLOSSINGEN</span>
+          <a href="engineering.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Engineering</a><a href="projectregie.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Projectregie</a><a href="digital-twin.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Digital Twin</a><a href="projecten.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Projecten</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.4);margin-bottom:6px">DIENSTEN</span>
+          <a href="diensten.html#bim-engineering" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">BIM-engineering &amp; modelleren</a><a href="diensten.html#bim-coordinatie" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">BIM-coördinatie &amp; BIM-management</a><a href="diensten.html#scan-to-bim" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Scan-to-BIM &amp; 3D-laserscannen</a><a href="diensten.html#gebouwinformatie" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">As-built &amp; informatiemanagement</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.4);margin-bottom:6px">DIGITAL CONSTRUCTION GROUP</span>
+          <a href="https://www.bim4all-academie.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">BIM4ALL Academy ↗</a><a href="https://www.studio-x.nl" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Studio X ↗</a><a href="organisatie.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Organisatie</a><a href="vacatures.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Vacatures</a>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;font-size:12.5px;color:rgba(255,255,255,.4)">
+        <span>© 2026 BIM4ALL · onderdeel van <a href="https://dsg-website.netlify.app" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);text-decoration:underline" style-hover="color:#ffffff">Digital Construction Group B.V.</a></span>
+        <span>Privacy · Algemene voorwaarden</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+class Component extends DCLogic {
+  state = { step: 1, who: null, pain: null, menu: null };
+
+  componentDidMount() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .7s ease, transform .8s cubic-bezier(.16,1,.3,1)';
+      el.style.transitionDelay = (parseInt(el.getAttribute('data-reveal'), 10) || 0) + 'ms';
+    });
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          this._io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    els.forEach((el) => this._io.observe(el));
+  }
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+  }
+
+  data() {
+    return {
+      bouw: {
+        pains: [
+          'Onze marges lekken weg in faalkosten en herstelwerk',
+          'We willen digitaliseren, maar weten niet waar te beginnen',
+          'De afstemming met onderaannemers en leveranciers kost te veel energie',
+        ],
+        results: [
+          { kicker: 'OPLOSSING · ENGINEERING — PRODUCT: MAAKBAAR PLAN', title: 'Een plan dat klopt voordat de bouw begint', body: 'Wij werken je definitief ontwerp uit tot een uitvoerings- en productiegereed plan. Elk knelpunt wordt opgelost op het scherm — niet op de steiger. Vaste scope, vast resultaat, per project.', cta: 'Start een Engineering QuickScan', caseName: 'Robin Wood, Amsterdam', caseBody: 'Complexe houtbouw, integraal uitgewerkt en gecoördineerd tot een maakbaar plan.' },
+          { kicker: 'OPLOSSING · ENGINEERING — INSTAP: DIGITALE ROADMAP', title: 'Stap voor stap, zonder big bang', body: 'We beginnen met een Digitale Roadmap: waar sta je, waar moet je heen, welke stap eerst. Vaste doorlooptijd, vast resultaat — en daarna bepaal jij het tempo.', cta: 'Plan een kennissessie', caseName: 'Bedrijven zoals dat van jou', caseBody: 'Tientallen middelgrote bouwbedrijven in heel Nederland gingen je voor.' },
+          { kicker: 'OPLOSSING · PROJECTREGIE — PRODUCT: DIGITALE BOUWPLAATS', title: 'Wij regisseren je keten', body: 'Eén CDE, heldere protocollen en leveranciers die op elkaar aansluiten. Wij nemen de regie op de digitale samenwerking, zodat jouw team bouwt in plaats van belt.', cta: 'Vraag een BIM Review aan', caseName: 'Landelijk raamcontract', caseBody: 'Vaste engineeringpartner van een landelijke installateur — samenwerken in plaats van traditioneel inkopen.' },
+        ],
+      },
+      install: {
+        pains: [
+          'We hebben te weinig werkvoorbereiders en engineers',
+          'Prefab en modelleren: we willen wel, maar het lukt niet naast het gewone werk',
+          'Clashes en verrassingen op de bouw kosten ons te veel',
+        ],
+        results: [
+          { kicker: 'OPLOSSING · ENGINEERING — PRODUCT: MAAKBAAR PLAN', title: 'Engineering alsof we bij jou op de zaak zitten', body: 'Jouw normen, jouw leveranciers, jouw planning. Wij nemen tekenwerk en prefab-voorbereiding over, zodat je monteurs monteren in plaats van improviseren. Vaste capaciteit zonder vaste kosten.', cta: 'Start een Project Intake', caseName: 'Landelijk raamcontract', caseBody: 'Vaste engineeringpartner van een landelijke installateur.' },
+          { kicker: 'OPLOSSING · ENGINEERING — PRODUCT: MAAKBAAR PLAN', title: 'Prefab begint met een plan dat klopt', body: 'Wij engineeren je installaties productiegereed — rechtstreeks bruikbaar voor fabriek en montage. Meer output met hetzelfde team, minder uitval.', cta: 'Start een Engineering QuickScan', caseName: 'Installatiepartners door heel Nederland', caseBody: 'Installatiebedrijven die hun engineering aan ons toevertrouwen.' },
+          { kicker: 'OPLOSSING · PROJECTREGIE — PRODUCT: DIGITALE BOUWPLAATS', title: 'Geen verrassingen meer op de bouw', body: 'Wij regisseren de coördinatie tussen disciplines: clash-vrij, maakbaar, met afspraken waar iedereen zich aan houdt. Jij houdt de techniek, wij het geharrewar.', cta: 'Vraag een BIM Review aan', caseName: 'Robin Wood, Amsterdam', caseBody: 'Integrale coördinatie van bouw en techniek in complexe houtbouw.' },
+        ],
+      },
+      vastgoed: {
+        pains: [
+          'Onze gebouwinformatie staat overal en nergens — het overzicht is weg',
+          'We moeten verduurzamen, maar kennen onze eigen voorraad niet goed genoeg',
+          'We willen starten, maar hebben beperkt budget en weinig mensen',
+        ],
+        results: [
+          { kicker: 'OPLOSSING · DIGITAL TWIN — PRODUCT: DIGITAL TWIN & VASTGOEDDATA', title: 'Eén levend gebouwdossier', body: 'We brengen orde: inmeten, structureren, actualiseren. Daarna houden we je data levend en gekoppeld aan FMIS, GBS en MJOP — praktisch en begrijpelijk.', cta: 'Doe de Digital Twin Scan', caseName: 'Monumentaal museum, Den Haag', caseBody: 'Rijksmonument met collectie, digitaal ontsloten voor beheer en onderhoud.' },
+          { kicker: 'OPLOSSING · DIGITAL TWIN — PRODUCT: DIGITAL TWIN & VASTGOEDDATA', title: 'Ken je voorraad, plan je opgave', body: 'Met scan-to-BIM en één actuele databron plan je onderhoud, renovatie en verduurzaming vanuit dezelfde waarheid. Beginnen met één complex, uitrollen over de portefeuille.', cta: 'Doe de Digital Twin Scan', caseName: 'Ziekenhuis, Den Haag', caseBody: 'Complex zorgvastgoed, betrouwbaar in beeld gebracht.' },
+          { kicker: 'OPLOSSING · DIGITAL TWIN — INSTAP: DIGITALE ROADMAP', title: 'Klein beginnen, jarenlang uitbouwen', body: 'We starten met een roadmap voor jouw vastgoed — een eerste opdracht die binnen je aanbestedingskaders past. Van overzicht en structuur groeien we samen naar een meerjarige samenwerking.', cta: 'Plan een kennissessie', caseName: 'Gemeentelijk vastgoed', caseBody: 'Publiek vastgoed, stap voor stap gedigitaliseerd.' },
+        ],
+      },
+    };
+  }
+
+  wilItems() {
+    return [
+      { label: 'Ik wil mijn project voorspelbaar uitvoeren', sub: 'Een plan dat klopt vóór de bouwstart — geen verrassingen op de steiger.', who: 'bouw', pain: 0 },
+      { label: 'Ik wil mijn faalkosten verlagen', sub: 'Knelpunten oplossen op het scherm in plaats van op de bouw.', who: 'bouw', pain: 2 },
+      { label: 'Ik wil mijn engineering uitbesteden', sub: 'Vaste capaciteit met verstand van jouw werk — zonder vaste kosten.', who: 'install', pain: 0 },
+      { label: 'Ik wil grip krijgen op gebouwinformatie', sub: 'Van versnipperde bestanden naar één betrouwbare bron.', who: 'vastgoed', pain: 0 },
+      { label: 'Ik wil mijn vastgoed digitaliseren', sub: 'Klein beginnen, binnen je kaders — en jarenlang uitbouwen.', who: 'vastgoed', pain: 2 },
+      { label: 'Ik wil mijn assets beter beheren', sub: 'Onderhoud, renovatie en verduurzaming plannen vanuit dezelfde waarheid.', who: 'vastgoed', pain: 1 },
+    ];
+  }
+
+  renderVals() {
+    const { step, who, pain, menu } = this.state;
+    const data = this.data();
+    const whoData = who ? data[who] : null;
+    const result = whoData && pain != null ? whoData.results[pain] : null;
+
+    const navBtn = (active) => ({
+      fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '14.5px', fontWeight: 600, cursor: 'pointer',
+      background: 'none', border: 'none', padding: '10px 0',
+      color: active ? '#ffffff' : 'rgba(255,255,255,.85)',
+      borderBottom: active ? '2px solid #b4d232' : '2px solid transparent',
+    });
+    const whoBtn = (active) => ({
+      fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '15px', fontWeight: 700, cursor: 'pointer',
+      padding: '20px 18px', border: '2px solid ' + (active ? '#262262' : 'rgba(38,34,98,.18)'),
+      background: active ? '#f5f5f9' : '#ffffff', color: '#262262', textAlign: 'center', transition: 'all .2s', borderRadius: '16px',
+    });
+    const pick = (w) => () => this.setState({ who: w, pain: null, step: 2, menu: null });
+    const pickDirect = (w, p) => () => this.setState({ who: w, pain: p, step: 3, menu: null });
+
+    const wil = this.wilItems().map((it) => ({
+      label: it.label, sub: it.sub, pick: pickDirect(it.who, it.pain),
+    }));
+
+    return {
+      menuWil: menu === 'wil',
+      menuOplossing: menu === 'oplossing',
+      openWil: () => this.setState({ menu: 'wil' }),
+      openOplossing: () => this.setState({ menu: 'oplossing' }),
+      toggleWil: () => this.setState({ menu: menu === 'wil' ? null : 'wil' }),
+      toggleOplossing: () => this.setState({ menu: menu === 'oplossing' ? null : 'oplossing' }),
+      closeMenu: () => this.setState({ menu: null }),
+      navBtnWil: navBtn(menu === 'wil'),
+      navBtnOplossing: navBtn(menu === 'oplossing'),
+
+      wilCards: wil,
+      wilLinksA: wil.slice(0, 3),
+      wilLinksB: wil.slice(3),
+
+      gidsStep1: step === 1,
+      gidsStep2: step === 2,
+      gidsStep3: step === 3,
+      whoBouw: pick('bouw'), whoInstall: pick('install'), whoVastgoed: pick('vastgoed'),
+      pickBouw: pick('bouw'), pickInstall: pick('install'), pickVastgoed: pick('vastgoed'),
+      whoBtnBouw: whoBtn(who === 'bouw'), whoBtnInstall: whoBtn(who === 'install'), whoBtnVastgoed: whoBtn(who === 'vastgoed'),
+      gidsBack: () => this.setState({ step: 1 }),
+      gidsReset: () => this.setState({ step: 1, who: null, pain: null }),
+      backBtnStyle: {
+        fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+        background: 'none', border: 'none', color: 'rgba(38,34,98,.5)', padding: 0,
+      },
+      painBtnStyle: {
+        fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '15px', fontWeight: 600, cursor: 'pointer',
+        padding: '18px 22px', border: '2px solid rgba(38,34,98,.18)', background: '#ffffff',
+        color: '#262262', textAlign: 'left', transition: 'all .2s', lineHeight: 1.5, borderRadius: '16px',
+      },
+      painOptions: whoData ? whoData.pains.map((label, i) => ({
+        label,
+        pick: () => this.setState({ pain: i, step: 3 }),
+      })) : [],
+      resultKicker: result ? result.kicker : '',
+      resultTitle: result ? result.title : '',
+      resultBody: result ? result.body : '',
+      resultCta: result ? result.cta : 'Plan een kennissessie',
+      resultCase: result ? result.caseName : '',
+      resultCaseBody: result ? result.caseBody : '',
+      resultCaseHref: result && result.caseName === 'Robin Wood, Amsterdam' ? 'case-robin-wood.html' : 'projecten.html',
+      resultCaseLinkLabel: result && result.caseName === 'Robin Wood, Amsterdam' ? 'Lees de case →' : 'Bekijk vergelijkbare projecten →',
+    };
+  }
+}
+</script>
+</body>
+</html>

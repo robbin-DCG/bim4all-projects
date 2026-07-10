@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"></link>
+<link rel="stylesheet" href="./responsive.css"></link>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#f5f5f9;font-family:'Facit','Montserrat',system-ui,sans-serif}
+a{color:#262262;text-decoration:none}a:hover{color:#14123a}
+</style>
+</helmet>
+
+<div id="top" data-screen-label="Plan een gesprek" style="min-width:1280px;color:#262262">
+
+  <!-- nav -->
+  <header style="position:sticky;top:0;z-index:50;background:#14123a;padding:18px 56px">
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1380px;margin:0 auto">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;color:#ffffff" style-hover="color:#ffffff">
+        <span style="font-size:21px;font-weight:800;color:#ffffff;letter-spacing:-.01em">BIM4ALL</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#14123a;background:#ffffff;padding:4px 10px;border-radius:99px">PROJECTS</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px;font-size:14.5px;font-weight:600;white-space:nowrap">
+        <a href="index.html#ikwil" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Ik wil…</a>
+        <a href="index.html#oplossingen" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Oplossingen</a>
+        <a href="projecten.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Projecten</a>
+        <a href="organisatie.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Organisatie</a>
+        <a href="vacatures.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Werken bij</a>
+        <a href="contact.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Contact</a>
+        <a href="https://www.bim4all-academie.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);padding:10px 0" style-hover="color:#ffffff">Academy ↗</a>
+      </nav>
+      <span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap">0548 - 37 67 97</span>
+    </div>
+  </header>
+
+  <!-- hero + form -->
+  <div style="background:#14123a;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;padding:88px 56px 96px">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:72px;align-items:start">
+
+      <div style="display:flex;flex-direction:column;gap:24px;padding-top:12px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#d9d7ee;border:1px solid rgba(255,255,255,.3);padding:9px 22px;border-radius:99px;align-self:flex-start">PLAN EEN GESPREK</span>
+        <h1 style="margin:0;font-size:52px;line-height:1.08;font-weight:800;color:#ffffff;letter-spacing:-.02em;text-wrap:balance">Eén gesprek. Daarna weet je precies waar je <span style="background:linear-gradient(100deg,#e94fbb 0%,#a86ee8 55%,#7d8cf0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">staat</span>.</h1>
+        <p style="margin:0;font-size:17px;line-height:1.75;color:rgba(255,255,255,.7)">Geen verkooppraatje — een gesprek over jouw project of vastgoed, met iemand die weet hoe je bouwt. Binnen één werkdag reactie.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px">
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="width:56px;height:56px;border-radius:50%;overflow:hidden;flex-shrink:0">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="gesprek-avatar" shape="circle" src="assets/portret-contact.png" placeholder="Foto" hint-size="56px,56px"></x-import>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-size:15.5px;font-weight:700;color:#ffffff">Je spreekt direct met een vakman</span>
+              <span style="font-size:13.5px;color:rgba(255,255,255,.6)">Geen accountmanager — iemand die je project snapt</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px;font-weight:600;color:rgba(255,255,255,.75)">
+            <span>✓ Binnen één werkdag reactie</span>
+            <span>✓ Vrijblijvend en zonder verplichtingen</span>
+            <span>✓ Direct een eerlijk beeld van wat wél en niet kan</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#ffffff;border-radius:24px;padding:44px 48px;display:flex;flex-direction:column;gap:20px">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <h2 style="margin:0;font-size:22px;font-weight:800;letter-spacing:-.01em">Vertel kort waar je staat</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+              <input placeholder="Naam" value="{{ fName }}" onChange="{{ setName }}" style="{{ inputStyle }}"></input>
+              <input placeholder="Bedrijf" value="{{ fCompany }}" onChange="{{ setCompany }}" style="{{ inputStyle }}"></input>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+              <input placeholder="E-mail" value="{{ fEmail }}" onChange="{{ setEmail }}" style="{{ inputStyle }}"></input>
+              <input placeholder="Telefoon (optioneel)" value="{{ fPhone }}" onChange="{{ setPhone }}" style="{{ inputStyle }}"></input>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:13px;font-weight:700;color:rgba(38,34,98,.6)">Wat beschrijft jou het best?</span>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                <button onClick="{{ whoBouw }}" style="{{ whoBtnBouw }}">Ik bouw</button>
+                <button onClick="{{ whoInstall }}" style="{{ whoBtnInstall }}">Ik installeer</button>
+                <button onClick="{{ whoVastgoed }}" style="{{ whoBtnVastgoed }}">Ik beheer vastgoed</button>
+              </div>
+            </div>
+            <textarea placeholder="Waar loop je tegenaan? (optioneel)" value="{{ fMessage }}" onChange="{{ setMessage }}" rows="4" style="{{ textareaStyle }}"></textarea>
+            <button onClick="{{ send }}" style="{{ sendBtnStyle }}">Verstuur — binnen één werkdag reactie</button>
+            <span style="font-size:12.5px;color:rgba(38,34,98,.5);text-align:center">Liever bellen? <strong>0548 - 37 67 97</strong> · of mail <strong>info@bim4all.com</strong></span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;padding:32px 0">
+            <span style="width:64px;height:64px;border-radius:50%;background:#14123a;color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:26px">✓</span>
+            <h2 style="margin:0;font-size:24px;font-weight:800">Dank je wel{{ sentName }}!</h2>
+            <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(38,34,98,.65);max-width:40ch">We nemen binnen één werkdag contact met je op. Je hoort van een vakman, niet van een salesafdeling.</p>
+            <button onClick="{{ reset }}" style="{{ resetBtnStyle }}">← Nog een bericht sturen</button>
+          </div>
+        </sc-if>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer style="background:#14123a;border-top:1px solid rgba(255,255,255,.1);padding:44px 56px 40px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;justify-content:space-between;font-size:12.5px;color:rgba(255,255,255,.4)">
+      <span>© 2026 BIM4ALL · onderdeel van Digital Construction Group B.V.</span>
+      <span>Nijverdalseweg 133, Rijssen · +31 (0)548 - 37 67 97 · info@bim4all.com</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+class Component extends DCLogic {
+  state = { sent: false, who: null, name: '', company: '', email: '', phone: '', message: '' };
+
+  renderVals() {
+    const s = this.state;
+    const inputStyle = {
+      fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '14.5px', padding: '15px 18px',
+      border: '2px solid rgba(38,34,98,.15)', borderRadius: '14px', color: '#262262', outline: 'none', width: '100%', boxSizing: 'border-box',
+    };
+    const whoBtn = (active) => ({
+      fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '13.5px', fontWeight: 700, cursor: 'pointer',
+      padding: '13px 10px', border: '2px solid ' + (active ? '#14123a' : 'rgba(38,34,98,.15)'),
+      background: active ? '#14123a' : '#ffffff', color: active ? '#ffffff' : '#262262',
+      borderRadius: '12px', transition: 'all .2s',
+    });
+    return {
+      notSent: !s.sent,
+      sent: s.sent,
+      sentName: s.name ? ', ' + s.name.split(' ')[0] : '',
+      fName: s.name, fCompany: s.company, fEmail: s.email, fPhone: s.phone, fMessage: s.message,
+      setName: (e) => this.setState({ name: e.target.value }),
+      setCompany: (e) => this.setState({ company: e.target.value }),
+      setEmail: (e) => this.setState({ email: e.target.value }),
+      setPhone: (e) => this.setState({ phone: e.target.value }),
+      setMessage: (e) => this.setState({ message: e.target.value }),
+      whoBouw: () => this.setState({ who: 'bouw' }),
+      whoInstall: () => this.setState({ who: 'install' }),
+      whoVastgoed: () => this.setState({ who: 'vastgoed' }),
+      whoBtnBouw: whoBtn(s.who === 'bouw'),
+      whoBtnInstall: whoBtn(s.who === 'install'),
+      whoBtnVastgoed: whoBtn(s.who === 'vastgoed'),
+      send: () => this.setState({ sent: true }),
+      reset: () => this.setState({ sent: false }),
+      inputStyle,
+      textareaStyle: Object.assign({}, inputStyle, { resize: 'vertical', minHeight: '96px' }),
+      sendBtnStyle: {
+        fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '15.5px', fontWeight: 700, cursor: 'pointer',
+        padding: '17px 24px', border: 'none', borderRadius: '99px', background: '#c1188d', color: '#ffffff', transition: 'background .2s',
+      },
+      resetBtnStyle: {
+        fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '13.5px', fontWeight: 700, cursor: 'pointer',
+        background: 'none', border: 'none', color: 'rgba(38,34,98,.55)', padding: 0,
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

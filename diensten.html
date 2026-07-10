@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"></link>
+<link rel="stylesheet" href="./responsive.css"></link>
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:#f5f5f9;font-family:'Facit','Montserrat',system-ui,sans-serif}
+a{color:#262262;text-decoration:none}a:hover{color:#14123a}
+</style>
+</helmet>
+
+<div id="top" data-screen-label="Diensten (spoor 2)" style="min-width:1280px;color:#262262">
+
+  <!-- nav -->
+  <header style="position:sticky;top:0;z-index:50;background:#14123a;padding:18px 56px">
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1380px;margin:0 auto">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;color:#ffffff" style-hover="color:#ffffff">
+        <span style="font-size:21px;font-weight:800;color:#ffffff;letter-spacing:-.01em">BIM4ALL</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#14123a;background:#ffffff;padding:4px 10px;border-radius:99px">PROJECTS</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px;font-size:14.5px;font-weight:600;white-space:nowrap">
+        <a href="index.html#ikwil" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Ik wil…</a>
+        <a href="index.html#oplossingen" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Oplossingen</a>
+        <a href="#top" style="color:#ffffff;padding:10px 0;border-bottom:2px solid #b4d232" style-hover="color:#ffffff">Diensten</a>
+        <a href="projecten.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Projecten</a>
+        <a href="vacatures.html" style="color:rgba(255,255,255,.85);padding:10px 0" style-hover="color:#ffffff">Werken bij</a>
+        <a href="https://www.bim4all-academie.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);padding:10px 0" style-hover="color:#ffffff">Academy ↗</a>
+      </nav>
+      <a href="contact.html" style="background:#c1188d;color:#ffffff;font-size:14px;font-weight:700;padding:12px 26px;border-radius:99px;transition:background .2s" style-hover="background:#9c1372;color:#ffffff">Contact</a>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <div style="background:#14123a;padding:72px 56px 64px">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:18px;text-align:center;align-items:center">
+      <span style="font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#d9d7ee;border:1px solid rgba(255,255,255,.3);padding:9px 22px;border-radius:99px">DIENSTEN</span>
+      <h1 style="margin:0;font-size:48px;line-height:1.1;font-weight:800;color:#ffffff;letter-spacing:-.02em;text-wrap:balance">Zoek je op vakterm? Hier vind je ons.</h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:rgba(255,255,255,.7);max-width:62ch">Van BIM-engineering tot 3D-laserscannen: dit zijn onze diensten zoals de markt ze kent. Elke dienst is bij ons onderdeel van een grotere oplossing — zodat je niet alleen een model of scan krijgt, maar een resultaat.</p>
+    </div>
+  </div>
+
+  <!-- diensten -->
+  <div style="padding:72px 56px 88px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+
+      <div id="bim-engineering" style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:40px;align-items:center;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1);padding:40px 44px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">BIM-engineering &amp; modelleren</h2>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(38,34,98,.7)">Bouwkundig en installatietechnisch (W/E) engineeren en modelleren: van definitief ontwerp naar uitvoerings- en productiegereed. Inclusief prefab-engineering en modelcontrole — clash-vrij en maakbaar.</p>
+          <p style="margin:0;font-size:12.5px;color:rgba(38,34,98,.5)">Ook bekend als: BIM-modelleur bouwkunde · BIM-modelleur installatietechniek · prefab engineering · Revit-modelleren</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:18px 22px;background:#f5f5f9;border-radius:14px">
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.12em;color:rgba(38,34,98,.5)">ONDERDEEL VAN DE OPLOSSING</span>
+          <span style="font-size:15.5px;font-weight:800">Engineering</span>
+          <span style="font-size:12.5px;line-height:1.55;color:rgba(38,34,98,.6)">Een model is bij ons het hulpmiddel — het maakbare plan is het resultaat.</span>
+        </div>
+        <a href="engineering.html" style="background:#262262;color:#ffffff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:99px;white-space:nowrap;transition:background .2s" style-hover="background:#14123a;color:#ffffff">Naar Engineering →</a>
+      </div>
+
+      <div id="bim-coordinatie" style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:40px;align-items:center;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1);padding:40px 44px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">BIM-coördinatie &amp; BIM-management</h2>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(38,34,98,.7)">Coördinatie tussen disciplines, clash-management, BIM-protocollen en informatiemanagement — aan opdrachtgevers- of opdrachtnemerszijde. Wij vervullen de rol van BIM-regisseur in je project of keten.</p>
+          <p style="margin:0;font-size:12.5px;color:rgba(38,34,98,.5)">Ook bekend als: BIM-coördinator · BIM-manager · BIM-regisseur · informatiemanagement bouw · CDE-beheer</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:18px 22px;background:#f5f5f9;border-radius:14px">
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.12em;color:rgba(38,34,98,.5)">ONDERDEEL VAN DE OPLOSSING</span>
+          <span style="font-size:15.5px;font-weight:800">Projectregie</span>
+          <span style="font-size:12.5px;line-height:1.55;color:rgba(38,34,98,.6)">Geen losse coördinator, maar regie op informatie, afspraken en samenwerking.</span>
+        </div>
+        <a href="projectregie.html" style="background:#262262;color:#ffffff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:99px;white-space:nowrap;transition:background .2s" style-hover="background:#14123a;color:#ffffff">Naar Projectregie →</a>
+      </div>
+
+      <div id="scan-to-bim" style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:40px;align-items:center;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1);padding:40px 44px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">Scan-to-BIM &amp; 3D-laserscannen</h2>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(38,34,98,.7)">Bestaand vastgoed betrouwbaar in beeld: 3D-laserscannen, pointclouds en de vertaling naar accurate as-built modellen. Eén gestandaardiseerde keten van inmeten, modelleren en opleveren — ook voor complexe gebouwen en monumenten.</p>
+          <p style="margin:0;font-size:12.5px;color:rgba(38,34,98,.5)">Ook bekend als: 3D-laserscannen · pointcloud · puntenwolk · as-built modelleren · reality capture</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:18px 22px;background:#f5f5f9;border-radius:14px">
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.12em;color:rgba(38,34,98,.5)">ONDERDEEL VAN DE OPLOSSING</span>
+          <span style="font-size:15.5px;font-weight:800">Digital Twin</span>
+          <span style="font-size:12.5px;line-height:1.55;color:rgba(38,34,98,.6)">De scan is de start — de levende informatiebasis is de waarde.</span>
+        </div>
+        <a href="digital-twin.html" style="background:#262262;color:#ffffff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:99px;white-space:nowrap;transition:background .2s" style-hover="background:#14123a;color:#ffffff">Naar Digital Twin →</a>
+      </div>
+
+      <div id="gebouwinformatie" style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:40px;align-items:center;background:#ffffff;border-radius:24px;border:1px solid rgba(38,34,98,.1);padding:40px 44px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">Gebouwinformatie &amp; asset management</h2>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(38,34,98,.7)">Structureren en actueel houden van gebouwdata over de hele levenscyclus: koppelingen met FMIS, GBS en MJOP, datasets voor NEN 2767 en NEN 2580, en DMS/CDE-beheer voor eigenaren en beheerders.</p>
+          <p style="margin:0;font-size:12.5px;color:rgba(38,34,98,.5)">Ook bekend als: assetdata · gebouwdossier · MJOP-koppeling · NEN 2580 meten · informatiebeheer vastgoed</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:18px 22px;background:#f5f5f9;border-radius:14px">
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.12em;color:rgba(38,34,98,.5)">ONDERDEEL VAN DE OPLOSSING</span>
+          <span style="font-size:15.5px;font-weight:800">Digital Twin</span>
+          <span style="font-size:12.5px;line-height:1.55;color:rgba(38,34,98,.6)">Betrouwbare informatie als voorziening — niet als projectbijproduct.</span>
+        </div>
+        <a href="digital-twin.html" style="background:#262262;color:#ffffff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:99px;white-space:nowrap;transition:background .2s" style-hover="background:#14123a;color:#ffffff">Naar Digital Twin →</a>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:40px;background:#14123a;border-radius:24px;padding:32px 40px;margin-top:12px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:19px;font-weight:800;color:#ffffff">Op zoek naar een training of opleiding?</span>
+          <span style="font-size:14px;color:rgba(255,255,255,.65)">BIM- en digitaliseringstrainingen vind je bij ons zusterbedrijf BIM4ALL Academy.</span>
+        </div>
+        <a href="https://www.bim4all-academie.com" target="_blank" rel="noopener" style="border:1.5px solid rgba(255,255,255,.4);color:#ffffff;font-size:14.5px;font-weight:700;padding:14px 30px;border-radius:99px;white-space:nowrap;transition:border-color .2s" style-hover="border-color:#ffffff;color:#ffffff">Naar de Academy ↗</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer style="background:#14123a;padding:56px 56px 40px">
+    <div style="max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:19px;font-weight:800;color:#ffffff">BIM4ALL</span>
+            <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#14123a;background:#ffffff;padding:3px 9px;border-radius:99px">PROJECTS</span>
+          </div>
+          <span style="font-size:14px;line-height:1.75;color:rgba(255,255,255,.55)">Regisseur van de digitale gebouwde omgeving.<br>Nijverdalseweg 133, 7461 AG Rijssen<br>+31 (0)548 - 37 67 97 · info@bim4all.com</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.4);margin-bottom:6px">OPLOSSINGEN</span>
+          <a href="engineering.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Engineering</a><a href="projectregie.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Projectregie</a><a href="digital-twin.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Digital Twin</a><a href="projecten.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Projecten</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.4);margin-bottom:6px">DIENSTEN</span>
+          <a href="#bim-engineering" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">BIM-engineering &amp; modelleren</a><a href="#bim-coordinatie" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">BIM-coördinatie &amp; BIM-management</a><a href="#scan-to-bim" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Scan-to-BIM &amp; 3D-laserscannen</a><a href="#gebouwinformatie" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">As-built &amp; informatiemanagement</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.4);margin-bottom:6px">DIGITAL CONSTRUCTION GROUP</span>
+          <a href="https://www.bim4all-academie.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">BIM4ALL Academy ↗</a><a href="https://www.studio-x.nl" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Studio X ↗</a><a href="organisatie.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Organisatie</a><a href="vacatures.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Vacatures</a><a href="contact.html" style="color:rgba(255,255,255,.65)" style-hover="color:#ffffff">Contact</a>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;font-size:12.5px;color:rgba(255,255,255,.4)">
+        <span>© 2026 BIM4ALL · onderdeel van Digital Construction Group B.V.</span>
+        <span>Nijverdalseweg 133, Rijssen · +31 (0)548 - 37 67 97</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}"></script>
+</body>
+</html>

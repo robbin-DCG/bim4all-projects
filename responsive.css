@@ -1,0 +1,63 @@
+/* BIM4ALL Projects — responsive laag
+   Basisontwerp is 1280px+ (inline styles). Deze laag herschikt alles
+   daaronder naar één kolom en compactere maten. */
+
+@media (max-width: 1100px) {
+  /* laat de pagina meekrimpen */
+  [data-screen-label] { min-width: 0 !important; }
+
+  /* alle grid-layouts naar één kolom */
+  [data-screen-label] [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* sectie-padding terugbrengen */
+  [data-screen-label] > div,
+  [data-screen-label] > footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  [data-screen-label] header { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* navigatie: middelste links verbergen, logo + CTA blijven */
+  [data-screen-label] header nav { display: none !important; }
+
+  /* koppen schalen */
+  [data-screen-label] h1 { font-size: 34px !important; line-height: 1.15 !important; }
+  [data-screen-label] h2 { font-size: 27px !important; line-height: 1.2 !important; }
+  [data-screen-label] h3 { font-size: 20px !important; }
+
+  /* rijen die niet mogen klemmen */
+  [data-screen-label] [style*="white-space:nowrap"] {
+    white-space: normal !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* horizontale flex-rijen met grote gaps laten wrappen */
+  [data-screen-label] [style*="justify-content:space-between"] {
+    flex-wrap: wrap !important;
+    gap: 18px !important;
+  }
+
+  /* hoge beeldvlakken iets lager op mobiel */
+  [data-screen-label] [style*="height:460px"],
+  [data-screen-label] [style*="height:420px"],
+  [data-screen-label] [style*="height:400px"] {
+    height: 260px !important;
+  }
+  [data-screen-label] [style*="height:340px"],
+  [data-screen-label] [style*="height:360px"] { height: 240px !important; }
+
+  /* grote sier-margins terugschroeven */
+  [data-screen-label] [style*="margin-top:28px"] { margin-top: 0 !important; }
+}
+
+@media (max-width: 600px) {
+  [data-screen-label] h1 { font-size: 28px !important; }
+  [data-screen-label] h2 { font-size: 23px !important; }
+
+  /* knoppenrijen onder elkaar */
+  [data-screen-label] [style*="display:flex"][style*="gap:16px"] {
+    flex-wrap: wrap !important;
+  }
+}
