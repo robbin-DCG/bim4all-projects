@@ -34,6 +34,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"></link>
 <link rel="stylesheet" href="./responsive.css"></link>
 <script src="./menu.js"></script>
+<script src="./personalize.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"BIM4ALL Projects","description":"Digitaal ingenieursbureau: engineering, projectregie en digital twin voor aannemers, installateurs en gebouweigenaren. Betere informatie leidt tot betere beslissingen.","telephone":"+31548376797","email":"info@bim4all.com","address":{"@type":"PostalAddress","streetAddress":"Nijverdalseweg 133","postalCode":"7461 AG","addressLocality":"Rijssen","addressCountry":"NL"},"parentOrganization":{"@type":"Organization","name":"Digital Construction Group B.V."},"knowsAbout":["BIM-engineering","BIM-coördinatie","BIM-management","Scan-to-BIM","Digital Twin","Reality capture","Informatiemanagement bouw","As-built"]}</script>
 <style>
 html{scroll-behavior:smooth;scroll-padding-top:100px}
@@ -180,6 +181,14 @@ a{color:#262262;text-decoration:none}a:hover{text-decoration:none}
         <a href="contact.html" style="background:#c1188d;color:#ffffff;font-size:15.5px;font-weight:700;padding:17px 38px;border-radius:99px;transition:background .2s" style-hover="background:#9c1372;color:#ffffff">Plan een kennissessie</a>
         <a href="#gids" style="border:1.5px solid rgba(255,255,255,.4);color:#ffffff;font-size:15.5px;font-weight:700;padding:16px 34px;border-radius:99px;transition:border-color .2s" style-hover="border-color:#ffffff;color:#ffffff">Wat wil jij oplossen?</a>
       </div>
+      <sc-if value="{{ heeftProfiel }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:8px 10px 8px 22px;flex-wrap:wrap;justify-content:center">
+          <span style="font-size:13.5px;color:rgba(255,255,255,.75)">Verder waar je was:</span>
+          <a href="{{ profielRolHref }}" style="font-size:13.5px;font-weight:700;color:#ffffff;text-decoration:underline;padding:6px 4px" style-hover="color:#b4d232">{{ profielRolLabel }}</a>
+          <a href="{{ profielCtaHref }}" style="background:#b4d232;color:#14123a;font-size:13.5px;font-weight:700;padding:9px 20px;border-radius:99px;transition:background .15s" style-hover="background:#c6e14e;color:#14123a">{{ profielCtaLabel }} →</a>
+          <button onClick="{{ profielReset }}" aria-label="Profiel wissen" title="Begin opnieuw" style="{{ profielResetStyle }}">×</button>
+        </div>
+      </sc-if>
     </div>
     <div style="max-width:1180px;margin:64px auto 0">
       <div data-reveal="120" style="height:460px;border-radius:24px 24px 0 0;overflow:hidden;position:relative">
@@ -350,6 +359,38 @@ a{color:#262262;text-decoration:none}a:hover{text-decoration:none}
         </div>
       </div>
       <p data-reveal="0" style="margin:0;text-align:center;font-size:13.5px;color:rgba(38,34,98,.5)">Nog geen concreet project, wel een digitale ambitie? De <strong>Digitale Roadmap</strong> is de instap: samen bepalen waar je staat en welke stap eerst komt.</p>
+    </div>
+  </div>
+
+  <!-- ===== ZIE HET VERSCHIL (clash-slider) ===== -->
+  <div style="padding:0 56px 96px">
+    <div style="max-width:1380px;margin:0 auto;background:#14123a;border-radius:32px;background-image:radial-gradient(760px 420px at 90% -5%,rgba(193,24,141,.26),transparent 65%),radial-gradient(700px 460px at 5% 30%,rgba(88,66,214,.28),transparent 65%);padding:56px 64px;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:#b4d232">ZIE HET VERSCHIL</span>
+        <h2 style="margin:0;font-size:34px;line-height:1.14;font-weight:800;color:#ffffff;letter-spacing:-.02em;text-wrap:balance">Dit is wat regie doet</h2>
+        <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(255,255,255,.7)">Links: disciplines die langs elkaar heen werken. Rechts: hetzelfde project, geregisseerd en clash-vrij. Sleep de streep en zie wat betere informatie doet, nog vóór de bouw begint.</p>
+        <a href="projectregie.html" style="font-size:14.5px;font-weight:700;color:#ffffff;border-bottom:2px solid rgba(255,255,255,.35);align-self:flex-start;padding-bottom:2px;margin-top:6px" style-hover="border-color:#ffffff;color:#ffffff">Zo regisseren we jouw project →</a>
+      </div>
+      <div onPointerDown="{{ clashStart }}" onPointerMove="{{ clashMove }}" onPointerUp="{{ clashEnd }}" style="height:400px;border-radius:20px;overflow:hidden;position:relative;cursor:col-resize;touch-action:none;user-select:none;background:#0d0b2a">
+        <div style="position:absolute;inset:0">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="clash-na" shape="rect" src="assets/engineer-bim-model.png" placeholder="NA: gecoördineerd model (clash-vrij)" hint-size="100%,400px"></x-import>
+        </div>
+        <div style="{{ clashVoorClip }}">
+          <div style="position:absolute;inset:0">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="clash-voor" shape="rect" src="assets/digital-twin-review.png" placeholder="VOOR: ongecoördineerd model (met clashes)" hint-size="100%,400px"></x-import>
+          </div>
+          <div style="position:absolute;inset:0;background:rgba(193,24,141,.14);pointer-events:none"></div>
+        </div>
+        <div style="{{ clashStreep }}">
+          <div style="position:absolute;top:0;bottom:0;left:-1px;width:3px;background:#ffffff;box-shadow:0 0 18px rgba(0,0,0,.45)"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.4);font-size:14px;font-weight:800;color:#14123a">◂▸</div>
+        </div>
+        <span style="position:absolute;top:14px;left:14px;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:#ffffff;background:rgba(20,18,58,.85);padding:7px 14px;border-radius:99px;pointer-events:none">VOOR</span>
+        <span style="position:absolute;top:14px;right:14px;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:#14123a;background:#b4d232;padding:7px 14px;border-radius:99px;pointer-events:none">NA · GEREGISSEERD</span>
+        <sc-for list="{{ clashMarkers }}" as="m" hint-placeholder-count="2">
+          <span style="{{ m.style }}">⚠ {{ m.label }}</span>
+        </sc-for>
+      </div>
     </div>
   </div>
 
@@ -595,9 +636,27 @@ a{color:#262262;text-decoration:none}a:hover{text-decoration:none}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
 class Component extends DCLogic {
-  state = { step: 1, who: null, pain: null, menu: null, q: '', busy: false, qNoteText: '' };
+  state = { step: 1, who: null, pain: null, menu: null, q: '', busy: false, qNoteText: '', savedWho: null, sx: 52, sdrag: false };
+
+  profielLees() {
+    try { return JSON.parse(localStorage.getItem('b4a-profiel') || '{}') || {}; } catch (e) { return {}; }
+  }
+  profielSchrijf(patch) {
+    try {
+      const p = this.profielLees();
+      Object.assign(p, patch);
+      localStorage.setItem('b4a-profiel', JSON.stringify(p));
+    } catch (e) {}
+  }
 
   componentDidMount() {
+    const prof = this.profielLees();
+    if (prof.who === 'bouw' || prof.who === 'install' || prof.who === 'vastgoed') {
+      this.setState({ who: prof.who, pain: 0, step: 3, savedWho: prof.who });
+    } else if (prof.dgAuto === 'bouw' || prof.dgAuto === 'install' || prof.dgAuto === 'vastgoed') {
+      /* impliciet profiel (fase 2): routewijzer voorselecteren, zonder "verder waar je was"-strip */
+      this.setState({ who: prof.dgAuto, pain: 0, step: 3 });
+    }
     const els = Array.from(document.querySelectorAll('[data-reveal]'));
     els.forEach((el) => {
       el.style.opacity = '0';
@@ -715,7 +774,23 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { step, who, pain, menu } = this.state;
+    const { step, who, pain, menu, savedWho } = this.state;
+    const profielMap = {
+      bouw: { rol: 'Voor aannemers', rolHref: 'aannemers.html', cta: 'Start een Engineering QuickScan', ctaHref: 'contact.html' },
+      install: { rol: 'Voor installateurs', rolHref: 'installateurs.html', cta: 'Start een Project Intake', ctaHref: 'contact.html' },
+      vastgoed: { rol: 'Voor gebouweigenaren', rolHref: 'gebouweigenaren.html', cta: 'Doe de Digital Twin Scan', ctaHref: 'digital-twin.html#scan' },
+    };
+    const prof = savedWho ? profielMap[savedWho] : null;
+
+    const { sx } = this.state;
+    const clashPos = (e) => {
+      const r = e.currentTarget.getBoundingClientRect();
+      return Math.max(6, Math.min(94, ((e.clientX - r.left) / r.width) * 100));
+    };
+    const clashMarkerData = [
+      { top: '28%', left: 16, label: 'Leiding door ligger' },
+      { top: '62%', left: 30, label: 'Kanaal clasht met constructie' },
+    ];
     const data = this.data();
     const whoData = who ? data[who] : null;
     const result = whoData && pain != null ? whoData.results[pain] : null;
@@ -732,8 +807,8 @@ class Component extends DCLogic {
       padding: '18px 20px', border: '2px solid ' + (active ? '#262262' : 'rgba(38,34,98,.18)'),
       background: active ? '#f5f5f9' : '#ffffff', color: '#262262', transition: 'all .2s', borderRadius: '16px',
     });
-    const pick = (w) => () => this.setState({ who: w, pain: 0, step: 3, menu: null });
-    const pickDirect = (w, p) => () => this.setState({ who: w, pain: p, step: 3, menu: null });
+    const pick = (w) => () => { this.profielSchrijf({ who: w }); this.setState({ who: w, pain: 0, step: 3, menu: null, savedWho: w }); };
+    const pickDirect = (w, p) => () => { this.profielSchrijf({ who: w }); this.setState({ who: w, pain: p, step: 3, menu: null, savedWho: w }); };
 
     const wil = this.wilItems().map((it) => ({
       label: it.label, sub: it.sub, pick: pickDirect(it.who, it.pain),
@@ -787,7 +862,36 @@ class Component extends DCLogic {
       pickBouw: pick('bouw'), pickInstall: pick('install'), pickVastgoed: pick('vastgoed'),
       whoBtnBouw: whoBtn(who === 'bouw'), whoBtnInstall: whoBtn(who === 'install'), whoBtnVastgoed: whoBtn(who === 'vastgoed'),
       gidsBack: () => this.setState({ step: 1 }),
-      gidsReset: () => this.setState({ step: 1, who: null, pain: null }),
+      gidsReset: () => { this.profielSchrijf({ who: null }); this.setState({ step: 1, who: null, pain: null, savedWho: null }); },
+      heeftProfiel: !!prof,
+      profielRolLabel: prof ? prof.rol : '',
+      profielRolHref: prof ? prof.rolHref : '#',
+      profielCtaLabel: prof ? prof.cta : '',
+      profielCtaHref: prof ? prof.ctaHref : '#',
+      profielReset: () => { this.profielSchrijf({ who: null }); this.setState({ step: 1, who: null, pain: null, savedWho: null }); },
+      profielResetStyle: {
+        fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '16px', fontWeight: 700, cursor: 'pointer',
+        background: 'none', border: 'none', color: 'rgba(255,255,255,.55)', padding: '4px 8px', lineHeight: 1,
+      },
+      clashStart: (e) => {
+        if (e.currentTarget.setPointerCapture) e.currentTarget.setPointerCapture(e.pointerId);
+        this.setState({ sdrag: true, sx: clashPos(e) });
+      },
+      clashMove: (e) => { if (this.state.sdrag) this.setState({ sx: clashPos(e) }); },
+      clashEnd: () => this.setState({ sdrag: false }),
+      clashVoorClip: { position: 'absolute', inset: 0, clipPath: 'inset(0 ' + (100 - sx) + '% 0 0)' },
+      clashStreep: { position: 'absolute', top: 0, bottom: 0, left: sx + '%', width: 0, pointerEvents: 'none' },
+      clashMarkers: clashMarkerData
+        .filter((m) => m.left < sx - 8)
+        .map((m) => ({
+          label: m.label,
+          style: {
+            position: 'absolute', top: m.top, left: m.left + '%',
+            fontSize: '11.5px', fontWeight: 700, color: '#ffffff',
+            background: 'rgba(193,24,141,.92)', padding: '6px 12px', borderRadius: '99px',
+            boxShadow: '0 6px 20px rgba(0,0,0,.35)', pointerEvents: 'none', whiteSpace: 'nowrap',
+          },
+        })),
       backBtnStyle: {
         fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '13px', fontWeight: 700, cursor: 'pointer',
         background: 'none', border: 'none', color: 'rgba(38,34,98,.5)', padding: 0,

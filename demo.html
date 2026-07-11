@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo: de persoonlijke website | BIM4ALL Projects (intern)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14123a">
+<link rel="icon" type="image/png" href="assets/bim4all-logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"></link>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#f5f5f9;font-family:'Facit','Montserrat',system-ui,sans-serif}
+a{color:#262262;text-decoration:none}a:hover{text-decoration:none}
+</style>
+</helmet>
+
+<div id="top" data-screen-label="Demo personalisatie" style="min-width:1280px;color:#262262">
+
+  <!-- intern-banner -->
+  <div style="background:#262262;padding:12px 56px;display:flex;align-items:center;gap:14px">
+    <span style="font-size:10.5px;font-weight:800;letter-spacing:.12em;color:#262262;background:#b4d232;padding:5px 12px;border-radius:99px">INTERNE DEMO</span>
+    <span style="font-size:13.5px;color:rgba(255,255,255,.75)">Voor marketing &amp; directie · niet geïndexeerd, niet gelinkt vanaf de site</span>
+    <a href="index.html" style="margin-left:auto;font-size:13.5px;font-weight:700;color:#ffffff" style-hover="color:#b4d232">Naar de website →</a>
+  </div>
+
+  <!-- hero -->
+  <div style="background:#14123a;background-image:radial-gradient(820px 480px at 85% -10%,rgba(193,24,141,.26),transparent 65%),radial-gradient(760px 500px at 8% 20%,rgba(88,66,214,.28),transparent 65%);padding:72px 56px 64px">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:18px">
+      <span style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;letter-spacing:.14em;color:#b4d232">DEMO · 5 MINUTEN</span>
+      <h1 style="margin:0;font-size:50px;line-height:1.08;font-weight:800;color:#ffffff;letter-spacing:-.02em;text-wrap:balance">De website die zich om de bezoeker heen bouwt</h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:rgba(255,255,255,.7);max-width:64ch">Drie dingen om live te laten zien: het bewijs-blok dat ons vak toont in plaats van claimt, de personalisatie die elk bezoek persoonlijker maakt, en het profiel dat de site opbouwt, volledig in de browser van de bezoeker zelf.</p>
+    </div>
+  </div>
+
+  <!-- 1. slider -->
+  <div style="padding:56px 56px 28px">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:baseline;gap:14px">
+        <span style="font-size:28px;font-weight:800;color:#c1188d">1</span>
+        <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">Tonen, niet claimen: de voor/na-slider</h2>
+      </div>
+      <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(38,34,98,.65);max-width:76ch">Sleep de streep. Elk klassiek bureau <em>schrijft</em> "wij coördineren clash-vrij"; wij laten het zien. Dezelfde techniek staat op de homepage (regie), Engineering (ontwerp → maakbaar plan) en Digital Twin (foto → model). De beelden hieronder zijn placeholders: sleep tijdens de demo live twee echte modelbeelden erin, dat is het moment dat het overtuigt.</p>
+      <x-import component-from-global-scope="clash-slider" from="./clash-slider.js" data-height="420px" data-before-src="assets/digital-twin-review.png" data-after-src="assets/engineer-bim-model.png" data-before-id="demo-voor" data-after-id="demo-na" data-before-label="VOOR · IEDER VOOR ZICH" data-after-label="NA · GEREGISSEERD" data-before-placeholder="Sleep hier het ongecoördineerde beeld" data-after-placeholder="Sleep hier het gecoördineerde beeld" hint-size="100%,420px"></x-import>
+    </div>
+  </div>
+
+  <!-- 2. personalisatie -->
+  <div style="padding:44px 56px 28px">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:baseline;gap:14px">
+        <span style="font-size:28px;font-weight:800;color:#c1188d">2</span>
+        <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">De site onthoudt wie je bent</h2>
+      </div>
+      <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(38,34,98,.65);max-width:76ch">Kies hieronder een rol (of doe het straks via de routewijzer op de homepage) en open daarna de homepage: onder de hero verschijnt "Verder waar je was" met de juiste route en de juiste eerste stap. De leesstand-schakelaar op de productpagina's onthoudt of iemand een scanner of een lezer is.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <button onClick="{{ kiesBouw }}" style="{{ btnBouw }}"><span style="font-size:15px;font-weight:800">Ik ben de aannemer</span><span style="font-size:12.5px;font-weight:600;color:rgba(38,34,98,.6)">Edwin · scant, wil bewijs en cijfers</span></button>
+        <button onClick="{{ kiesInstall }}" style="{{ btnInstall }}"><span style="font-size:15px;font-weight:800">Ik ben de installateur</span><span style="font-size:12.5px;font-weight:600;color:rgba(38,34,98,.6)">Sander · zoekt capaciteit en samenwerking</span></button>
+        <button onClick="{{ kiesVastgoed }}" style="{{ btnVastgoed }}"><span style="font-size:15px;font-weight:800">Ik ben de gebouweigenaar</span><span style="font-size:12.5px;font-weight:600;color:rgba(38,34,98,.6)">Ingrid · leest in detail, wil grip op data</span></button>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="index.html" style="background:#c1188d;color:#ffffff;font-size:14px;font-weight:700;padding:13px 28px;border-radius:99px;transition:background .2s" style-hover="background:#9c1372;color:#ffffff">Open de homepage en zie het effect →</a>
+        <a href="engineering.html" style="border:1.5px solid rgba(38,34,98,.25);color:#262262;font-size:14px;font-weight:700;padding:12px 26px;border-radius:99px" style-hover="border-color:#262262;color:#262262">Probeer de leesstand op Engineering →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. profielkaart -->
+  <div style="padding:44px 56px 28px">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:baseline;gap:14px">
+        <span style="font-size:28px;font-weight:800;color:#c1188d">3</span>
+        <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">Wat de site nu van jou denkt</h2>
+      </div>
+      <div style="background:#14123a;border-radius:24px;padding:40px 44px;display:flex;flex-direction:column;gap:28px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.5)">ROL / DOELGROEP</span>
+          <span style="font-size:24px;font-weight:800;color:#b4d232">{{ profielWie }}</span>
+          <span style="font-size:13px;line-height:1.6;color:rgba(255,255,255,.55)">{{ profielWieToelichting }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.5)">LEESSTAND</span>
+          <span style="font-size:24px;font-weight:800;color:#b4d232">{{ profielStand }}</span>
+          <span style="font-size:13px;line-height:1.6;color:rgba(255,255,255,.55)">Gekozen op een productpagina; geldt site-breed.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.5)">PRIVACY</span>
+          <span style="font-size:13.5px;line-height:1.7;color:rgba(255,255,255,.8)">Dit profiel staat alléén in deze browser (localStorage). Geen server, geen cookies van derden, geen persoonsgegevens.</span>
+          <button onClick="{{ wisProfiel }}" style="{{ wisBtn }}">Wis profiel (begin opnieuw)</button>
+        </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:32px">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.5)">ROL-PUNTEN (FASE 2, LIVE)</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-for list="{{ rolScores }}" as="s" hint-placeholder-count="4">
+                <span style="{{ s.style }}">{{ s.naam }} · {{ s.pt }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.5)">DOELGROEP-PUNTEN (FASE 2, LIVE)</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-for list="{{ dgScores }}" as="s" hint-placeholder-count="3">
+                <span style="{{ s.style }}">{{ s.naam }} · {{ s.pt }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="grid-column:1/-1;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center">
+            <span style="font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.5)">Een profiel wordt actief bij ≥ 6 punten én ≥ 3 voorsprong. Blader door de site (bijv. 2× een rol-pagina) en ververs om het te zien optellen.</span>
+            <button onClick="{{ ververs }}" style="{{ verversBtn }}">↻ Ververs profielkaart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. het verhaal -->
+  <div style="padding:44px 56px 80px">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:baseline;gap:14px">
+        <span style="font-size:28px;font-weight:800;color:#c1188d">4</span>
+        <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.01em">Waarom dit past bij onze strategie</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div style="background:#ffffff;border:1px solid rgba(38,34,98,.1);border-radius:20px;padding:26px 28px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:11px;font-weight:800;letter-spacing:.1em;color:#c1188d">DE BELOFTE WAARGEMAAKT</span>
+          <p style="margin:0;font-size:14px;line-height:1.7;color:rgba(38,34,98,.7)">"Betere informatie leidt tot betere beslissingen." Een site die zich aanpast aan de bezoeker ís dat principe, toegepast op onszelf.</p>
+        </div>
+        <div style="background:#ffffff;border:1px solid rgba(38,34,98,.1);border-radius:20px;padding:26px 28px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:11px;font-weight:800;letter-spacing:.1em;color:#c1188d">ZES BELEVINGEN, ÉÉN MERK</span>
+          <p style="margin:0;font-size:14px;line-height:1.7;color:rgba(38,34,98,.7)">Aannemer, installateur, gebouweigenaar, verantwoorder, kandidaat en vakgenoot krijgen elk hun toon, beeld en route. Het merk blijft één; de dosering verschuift.</p>
+        </div>
+        <div style="background:#ffffff;border:1px solid rgba(38,34,98,.1);border-radius:20px;padding:26px 28px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:11px;font-weight:800;letter-spacing:.1em;color:#c1188d">SPELREGELS</span>
+          <p style="margin:0;font-size:14px;line-height:1.7;color:rgba(38,34,98,.7)">Nooit content verbergen, nooit "hallo aannemer!"-banners, altijd een zichtbare weg terug. Subtiel herordenen, dat is alles.</p>
+        </div>
+      </div>
+      <p style="margin:0;font-size:14px;line-height:1.7;color:rgba(38,34,98,.55)">Volgende fases: impliciet profiel op basis van klikgedrag (met ruime drempels), en later AI-verrijkte routewijzer en copy. Het volledige model staat in het CBJ &amp; Personalisatie-strategiedocument.</p>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+class Component extends DCLogic {
+  state = { who: null, stand: null, scores: { rol: {}, dg: {} }, rolAuto: null, dgAuto: null };
+
+  lees() {
+    try { return JSON.parse(localStorage.getItem('b4a-profiel') || '{}') || {}; } catch (e) { return {}; }
+  }
+  schrijf(patch) {
+    try {
+      const p = this.lees();
+      Object.assign(p, patch);
+      localStorage.setItem('b4a-profiel', JSON.stringify(p));
+    } catch (e) {}
+  }
+
+  componentDidMount() {
+    this.laad();
+  }
+
+  laad() {
+    const p = this.lees();
+    this.setState({ who: p.who || null, stand: p.stand || null, scores: p.scores || { rol: {}, dg: {} }, rolAuto: p.rolAuto || null, dgAuto: p.dgAuto || null });
+  }
+
+  renderVals() {
+    const { who, stand, scores, rolAuto, dgAuto } = this.state;
+    const chip = (actief) => ({
+      fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '13px', fontWeight: 700,
+      padding: '8px 16px', borderRadius: '99px',
+      background: actief ? '#b4d232' : 'rgba(255,255,255,.08)',
+      color: actief ? '#14123a' : 'rgba(255,255,255,.75)',
+      border: '1px solid ' + (actief ? '#b4d232' : 'rgba(255,255,255,.18)'),
+    });
+    const rolNamen = { klant: 'Klant', kandidaat: 'Kandidaat', kennis: 'Kenniszoeker', verantwoorder: 'Verantwoorder' };
+    const dgNamen = { bouw: 'Bouw', install: 'Installatie', vastgoed: 'Vastgoed' };
+    const namen = { bouw: 'Aannemer', install: 'Installateur', vastgoed: 'Gebouweigenaar' };
+    const toelichting = {
+      bouw: 'Route: bewijs en cijfers eerst, CTA: Engineering QuickScan.',
+      install: 'Route: capaciteit en samenwerking, CTA: Project Intake.',
+      vastgoed: 'Route: data en levenscyclus, CTA: Digital Twin Scan.',
+    };
+    const kies = (w) => () => { this.schrijf({ who: w }); this.setState({ who: w }); };
+    const btn = (actief) => ({
+      fontFamily: "'Facit','Montserrat',sans-serif", cursor: 'pointer', textAlign: 'left',
+      display: 'flex', flexDirection: 'column', gap: '5px', alignItems: 'flex-start',
+      padding: '18px 20px', borderRadius: '16px', transition: 'all .2s',
+      border: '2px solid ' + (actief ? '#c1188d' : 'rgba(38,34,98,.15)'),
+      background: actief ? 'rgba(193,24,141,.06)' : '#ffffff', color: '#262262',
+    });
+    return {
+      kiesBouw: kies('bouw'), kiesInstall: kies('install'), kiesVastgoed: kies('vastgoed'),
+      btnBouw: btn(who === 'bouw'), btnInstall: btn(who === 'install'), btnVastgoed: btn(who === 'vastgoed'),
+      profielWie: who ? namen[who] : 'Nog onbekend',
+      profielWieToelichting: who ? toelichting[who] : 'Kies hierboven een rol, of gebruik de routewijzer op de homepage.',
+      profielStand: stand === 'kort' ? 'In het kort' : stand === 'detail' ? 'In detail' : 'Nog niet gekozen',
+      wisProfiel: () => {
+        try { localStorage.removeItem('b4a-profiel'); } catch (e) {}
+        this.setState({ who: null, stand: null });
+      },
+      wisBtn: {
+        fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+        alignSelf: 'flex-start', padding: '10px 20px', borderRadius: '99px',
+        border: '1.5px solid rgba(255,255,255,.35)', background: 'transparent', color: '#ffffff',
+      },
+      rolScores: Object.keys(rolNamen).map((k) => ({
+        naam: rolNamen[k], pt: (scores.rol && scores.rol[k]) || 0, style: chip(rolAuto === k),
+      })),
+      dgScores: Object.keys(dgNamen).map((k) => ({
+        naam: dgNamen[k], pt: (scores.dg && scores.dg[k]) || 0, style: chip(!who && dgAuto === k),
+      })),
+      ververs: () => this.laad(),
+      verversBtn: {
+        fontFamily: "'Facit','Montserrat',sans-serif", fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+        padding: '10px 22px', borderRadius: '99px', border: 'none', background: '#c1188d', color: '#ffffff',
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
